@@ -1,0 +1,19 @@
+[
+  {
+    "effect": "regular",
+    "text": "I've noticed something...",
+    "speed": 0.06,
+    "newline": 1,
+    "pause": 3
+  },
+  {
+    "text": "Files...",
+    "speed": 0.1,
+    "delay": 2
+  },
+  {
+    "text": "You trust files...",
+    "speed": 0.1,
+    "delay": 1.5
+  }
+]
