@@ -1,11 +1,10 @@
 ## The_Unknown
 
-The_Unknown is a choice-driven Python terminal adventure where your decisions shape the journey. Interact with an enigmatic entity and see if you can navigate the depths of the console.
-
+The_Unknown is a choice-driven Python terminal adventure where every decision alters your path. Converse with an unfamiliar voice, uncover hidden clues, and discover what lies within the console.
 
 ## Features:
 
-  - Terminal-Based Gameplay: A classic "*text adventure*" style interface, featuring ASCII art.
+  - Terminal-Based Gameplay: A classic text adventure style interface, featuring ASCII art.
   
   - Dynamic Interactions: Your input directly *influences* the narrative path.
   
@@ -13,16 +12,14 @@ The_Unknown is a choice-driven Python terminal adventure where your decisions sh
 
 ---
 
-## Save System and Restricted Mode
+## Save System and File Creation
 
 To ensure your privacy and security, this program follows a strict file-access policy.
 
-  **Standard Mode**: If a valid save file is detected in the local directory, the game will automatically record your progress, allowing you to resume your journey later.
+  **Standard**: If a valid save file is detected in the local directory, the game will automatically record your progress, allowing you to resume your journey later.
 
-  **Restricted Mode**: If no save file is found, the game will launch in Restricted Mode.
+  **File Creation**: If no save file or directory exists, the game will automatically create the required files and folders.
 
-    In this mode, the program will not create new files on your system.
-    You can play the full game, but your progress will not be saved after you close the terminal.
 ---
 
 ## Installation & Usage
@@ -38,13 +35,28 @@ cd the_unknown
 
   3. Run the game:
 ```Bash
-python3 main.py
+python3 the_unknown.py
 ```
 ---
 
 ## Privacy Disclaimer
 
-This project respects your data. The code does not modify, delete, or upload any files from your computer. It only reads/writes to its own specific save file if you have provided one. You are encouraged to inspect the source code yourself to verify its behavior.
-
+This project only accesses files within its designated save directory. It will not modify, delete, or upload any of your existing files.
+You are encouraged to review the source code to verify its behavior firsthand.
 
 ***Created by Hazmat Harry***
+
+```Text
+      ___    ___     ___    ___  _____    ,
+     /  /   /  /    |   |  |   |/ ____\  /B
+    /  /___/  /     |   |__|   | | n n |//
+   /__ ___ __/      B    __    | |_____|/
+   \  \   \  \      |   |  |   | o  U o|      /|/|
+    \__\   \__\     |   |  |   |   ____|-_-_-/ | |
+    /__/   /__/    /_____\/_____\______________|_|
+```
+
+
+
+
+

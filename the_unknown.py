@@ -1,37 +1,50 @@
 import os ##pretty straight forward
 import time
-import re## import regex!!!!! USE THISSS
+import re## import regex!!!!! USE THIS!
 import random
 import string
 import sys
 import json
+from core import save_system
 from pathlib import Path
 from core import text_effects
+from core import save_system
+
+
+
+save_system.on_start_checks()# This will exit if the program is missing the dialogue.
+
+
+time.sleep(7)
 
 
 #Debug Variables-----------Start
 
-restricted_mode = False
+restricted_mode = False #------------------delete
 
 #Debug Variables-----------End
-
 
 
 #Data? Whats that? 
 
 dataaa = {}
 dialogue = []
-savefile_path = Path("bitz.json")
-dialogue_path = Path("content") / "narrative.json"
+savefile_path = Path("saves")
+dialogue_path = Path("content/narrative.json")
+
+
+
+
+
 
 
 if dialogue_path.exists():
 	with dialogue_path.open('r', encoding='utf-8') as d:
 		dialogue = json.load(d)
-		#print(str(dialogue))
-		#print("Success")
+		# print(str(dialogue))
+		# time.sleep(5)
 else:
-	sys.exit(f"Error: {dialogue_path} not found. Exiting program.")##breakpoint if dialogue not found-----/o\
+	sys.exit(f"Error: {dialogue_path} not found. Exiting program... ")##breakpoint if dialogue not found-----/o\
 
 
 
@@ -39,7 +52,7 @@ else:
 def file_init():
 	global dataaa, restricted_mode
 	if savefile_path.is_file():
-		with open('bitz.json', 'r') as file:
+		with open('save1.json', 'r') as file:
 			dataaa = json.load(file)
 	else:
 		restricted_mode = True
@@ -127,7 +140,7 @@ username = os.getenv("LOGNAME")
 
 
 if username:
-	text_effects.clear_terminal
+	text_effects.clear_terminal()
 	text_effects.typewriter_text(startup_node, .015, pause_time=2)
 	text_effects.scanning_bar()
 	

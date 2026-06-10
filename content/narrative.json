@@ -1,12 +1,13 @@
 [
   {
     "effect": "regular",
-    "text": "I've noticed something...",
+    "text": "H-hello?",
     "speed": 0.06,
     "newline": 1,
     "pause": 3
   },
   {
+    "effect":"regular",
     "text": "Files...",
     "speed": 0.1,
     "delay": 2
