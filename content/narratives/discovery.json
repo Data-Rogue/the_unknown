@@ -8,12 +8,12 @@
   },
   {
     "effect":"regular",
-    "text": "Files...",
+    "text": "Who's there??",
     "speed": 0.1,
     "delay": 2
   },
   {
-    "text": "You trust files...",
+    "text": "Hmm...",
     "speed": 0.1,
     "delay": 1.5
   }

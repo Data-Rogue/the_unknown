@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "title": "Origin",
+    "author": "Hazmat Harry",
+    "id": "origin"
+  },
+  "default_save": {
+    "save_name": "origin",
+    "current_node": "start",
+    "times_played": 0,
+    "trust": false,
+    "bits": 0
+  },
+  
+  "nodes": {
+
+    "start": {
+      "effect": "regular",
+      "speed": 0.06,
+      "newline": 1,
+      "pause": 3,
+      "text": "H-hello?",
+      "next": "intro_p1"
+    },
+    "intro_p1": {
+      "effect": "regular",
+      "speed": 0.06,
+      "newline": 1,
+      "pause": 3,
+      "text": "W-who's there??",
+      "commands": "get_name",
+      "next": "intro_p2"
+    },
+    "intro_p2": {
+      "effect": "regular",
+      "speed": 0.05,
+      "newline": 1,
+      "pause": 2,
+      "text": "{player_name}?",
+      "next": "intro_p3"
+    }
+  }
+}

@@ -1,14 +1,19 @@
 ## The_Unknown
 
-The_Unknown is a choice-driven Python terminal adventure where every decision alters your path. Converse with an unfamiliar voice, uncover hidden clues, and discover what lies within the console.
+
+The_Unknown is an open-source Python terminal narrative engine and interactive fiction framework.
+
+Create branching stories, dialogue-driven adventures, mystery games, visual novel style experiences, or entirely custom text-based projects using simple JSON narrative files.
+
+The project includes a starter narrative called **Origin**, but the engine is designed to support entirely custom narratives without modifying the core Python code.
 
 ## Features:
+  
+  - Create branching narratives using simple JSON files with minimal programming knowledge
 
-  - Terminal-Based Gameplay: A classic text adventure style interface, featuring ASCII art.
-  
-  - Dynamic Interactions: Your input directly *influences* the narrative path.
-  
-  - Persistent Progress: [(See Save System below)](#save-system-and-restricted-mode).
+  - Dynamic Interactions: Player choices influence story progression, dialogue, and narrative outcomes
+
+  - Persistent Progress
 
 ---
 
@@ -16,7 +21,7 @@ The_Unknown is a choice-driven Python terminal adventure where every decision al
 
 To ensure your privacy and security, this program follows a strict file-access policy.
 
-  **Standard**: If a valid save file is detected in the local directory, the game will automatically record your progress, allowing you to resume your journey later.
+  **Standard**: The engine stores save files in its dedicated save directory. If a valid save is found for the current narrative, progress will be loaded automatically.
 
   **File Creation**: If no save file or directory exists, the game will automatically create the required files and folders.
 
@@ -41,7 +46,7 @@ python3 the_unknown.py
 
 ## Privacy Disclaimer
 
-This project only accesses files within its designated save directory. It will not modify, delete, or upload any of your existing files.
+This project only reads from and writes to its designated save directory. It does not modify unrelated files on your system or transmit data externally.
 You are encouraged to review the source code to verify its behavior firsthand.
 
 ***Created by Hazmat Harry***

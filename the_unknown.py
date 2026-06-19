@@ -5,17 +5,30 @@ import random
 import string
 import sys
 import json
-from core import save_system
+from engine.core import save_system
 from pathlib import Path
-from core import text_effects
-from core import save_system
+from engine.core import text_effects
+from engine.core import save_system
+from engine import start
+
+
+#save_system.check_saves()
+#save_system.on_start_checks()# This will exit if the program is missing the dialogue.
+#save_system.times_played("increment")
+#print(f"Times played: {save_system.times_played("read")}")
+
+
+start.choose_story()
+
+time.sleep(70)
+
+#------------------------------ transition into newer and organized codebase
+#------------------------------ most code below (if not all) will be deleted.
 
 
 
-save_system.on_start_checks()# This will exit if the program is missing the dialogue.
 
 
-time.sleep(7)
 
 
 #Debug Variables-----------Start
@@ -101,6 +114,17 @@ files_texted = r"""
 
 """
 
+
+
+if dialogue_path.exists():
+	with dialogue_path.open('r', encoding='utf-8') as d:
+		dialogue = json.load(d)
+		# print(str(dialogue))
+		# time.sleep(5)
+else:
+	sys.exit(f"Error: {dialogue_path} not found. Exiting program... ")##breakpoint if dialogue not found-----/o\
+
+
 ##ASCII Art end here ------------------------------->>>end
 
 
@@ -108,8 +132,6 @@ files_texted = r"""
 
 
 ##Story time ------------------------------------------------------>>>start
-
-disclaimer = "THIS PROJECT DOES NOT TOUCH YOUR FILES IN ANY WAY, INSPECT THE CODE FOR YOURSELF AT https://github.com/Data-Rogue/the_unknown"
 
 
 files_like = "You know, I like files..."
@@ -224,7 +246,7 @@ story_1()
 
 
 #This is your next thing to work on: scrambling the secret message and unscrambling the message with a key
-#the user will recieve a key to unlock the first 
+#the user will receive a key to unlock the first 
 
 def obfuscate(text, secret_key):
 	chars = list(text)
