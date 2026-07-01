@@ -2,7 +2,8 @@
   "metadata": {
     "title": "Origin",
     "author": "Hazmat Harry",
-    "id": "origin"
+    "id": "origin",
+    "version": "0.1.0"
   },
   "default_save": {
     "save_name": "origin",

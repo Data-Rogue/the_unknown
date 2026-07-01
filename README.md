@@ -1,3 +1,5 @@
+![The_unknown logo](assets/the_unknown_banner.png)
+
 ## The_Unknown
 
 

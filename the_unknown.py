@@ -7,18 +7,30 @@ import sys
 import json
 from engine.core import save_system
 from pathlib import Path
+from engine import start
+from engine import game
 from engine.core import text_effects
 from engine.core import save_system
-from engine import start
-
+from engine.core import text_renderer
 
 #save_system.check_saves()
 #save_system.on_start_checks()# This will exit if the program is missing the dialogue.
 #save_system.times_played("increment")
 #print(f"Times played: {save_system.times_played("read")}")
 
+# narrative1 = Path("content/narratives/origin.json")
+# gamedata = ""
+# with narrative1.open('r', encoding='utf-8') as file:
+		
+# 		gamedata = json.load(file)
 
-start.choose_story()
+
+# text_renderer.parse_data(gamedata)
+#text_renderer.get_story(gamedata)
+
+#time.sleep(30)
+game.start_game()
+#start.choose_story()
 
 time.sleep(70)
 

@@ -1,8 +1,8 @@
-
+from engine import start
 
 
 def start_game():
-    pass
+    start.choose_story()
 
 
 
