@@ -64,17 +64,19 @@ def get_saves(narrative_name):
 		saves_found.append(file)
 		text_effects.typewriter_text(f"{saves_count}: {file.stem} at {savefile_path}", 0.01, 1, .1)
 		print("\n")
-	
-	#print(str(saves_found))
 
-	if saves_count == 0:
-		text_effects.typewriter_text("None found.", 0.01, 1, .1)
-		text_effects.typewriter_text("Creating new savefile...", 0.01, 1, .1)
-		text_effects.typewriter_text("Lol, I haven't made the logic yet. pls make it.", 0.01, 1, .1)
-		#make_savefile(narrative_name)
-		#text_effects.typewriter_text("Done!", 0.01, 3, .1)
-		#text_effects.typewriter_text("Starting...", 0.01, 1, .1)
 
+	match saves_count:
+		case 0:
+			# TODO: Make this make a new save if none are found.
+			text_effects.typewriter_text("None found.", 0.01, 1, .1)
+			text_effects.typewriter_text("Creating new savefile...", 0.01, 1, .1)
+			text_effects.typewriter_text("Lol, I haven't made the logic yet. pls make it.", 0.01, 1, .1)
+			#make_savefile(narrative_name)
+			#text_effects.typewriter_text("Done!", 0.01, 3, .1)
+			#text_effects.typewriter_text("Starting...", 0.01, 1, .1)
+		case count if count > 0:
+			pick_savefile()
 
 	#print(str(saves_found))
 
@@ -141,6 +143,7 @@ def check_saves():###Make it so it saves the stories as: "title_save" but lowerc
 
 
 
+	global current_save
 def load_save():
 	pass
 
@@ -149,9 +152,7 @@ def load_save():
 def load_story(story):##Fix so that it loads savefile if picked.
 	"Grab and load save based in the input."
 	global current_story
-
 	index = story - 1
-
 
 	story_path = stories_found[index] #Returns path
 	narrative_name = story_path.stem
