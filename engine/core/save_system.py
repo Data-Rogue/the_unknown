@@ -11,7 +11,8 @@ stories_found = []
 stories_found_var = []
 
 dialogue_path = Path("content/narratives")
-savefile_path = Path("saves")#FIX SO IT CALLS saveFILE not directory!!
+savefile = Path("saves")#this is the path to the actual savefile
+save_path = Path("saves")#path to all savefiles
 
 current_savefile = 0
 current_story = ""
@@ -59,10 +60,10 @@ def get_saves(narrative_name):
 	text_effects.typewriter_text(f"Saves for {narrative_name}", 0.05, 3)
 	text_effects.typewriter_text("0: New file", 0.01, 2, .1)
 
-	for file in savefile_path.rglob(pattern):
+	for file in save_path.rglob(pattern):
 		saves_count += 1
 		saves_found.append(file)
-		text_effects.typewriter_text(f"{saves_count}: {file.stem} at {savefile_path}", 0.01, 1, .1)
+		text_effects.typewriter_text(f"{saves_count}: {file.stem} at {save_path}", 0.01, 1, .1)
 		print("\n")
 
 
@@ -70,11 +71,7 @@ def get_saves(narrative_name):
 		case 0:
 			# TODO: Make this make a new save if none are found.
 			text_effects.typewriter_text("None found.", 0.01, 1, .1)
-			text_effects.typewriter_text("Creating new savefile...", 0.01, 1, .1)
-			text_effects.typewriter_text("Lol, I haven't made the logic yet. pls make it.", 0.01, 1, .1)
-			#make_savefile(narrative_name)
-			#text_effects.typewriter_text("Done!", 0.01, 3, .1)
-			#text_effects.typewriter_text("Starting...", 0.01, 1, .1)
+			make_savefile(narrative_name)
 		case count if count > 0:
 			pick_savefile()
 
@@ -83,6 +80,9 @@ def get_saves(narrative_name):
 
 
 def pick_savefile():
+	"""
+	Pick savefile from user input.
+	"""
 	global current_savefile
 	check = input("Choose save (Use numbers, or 'exit'): ")
 	print("")
@@ -99,6 +99,7 @@ def pick_savefile():
 				if check_num in range(1, saves_count + 1):#add 1 to be inclusive
 					print(check_num)
 					current_savefile = check
+					savefile = saves_found[check]
 					load_save(current_savefile)
 				else:
 					print("Not a selectable story.")
@@ -114,6 +115,9 @@ def pick_savefile():
 
 
 def pick_story():
+	"""
+	Pick story from user input.
+	"""
 	global story_count, selected_story
 	check = input("Choose Story (Use numbers, or 'exit'): ")
 	print("")
@@ -202,13 +206,21 @@ def save_game():
 	"""
 	Function to write data to the disk.
 	"""
-	print(str(savefile_path))
-	with savefile_path.open('w', encoding='utf-8') as file:####FIX OPENING FOLDER INSTEAD OF FILE
+	print(str(savefile))
+	with savefile.open('w', encoding='utf-8') as file:# HACK: FIX OPENING FOLDER INSTEAD OF FILE
 		json.dump(basic_data, file, indent=4)
 
 
 def read_save(key, default=None):
 	return basic_data.get(key, default)
+
+def make_savefile(name):
+	text_effects.typewriter_text("Creating new savefile...", 0.01, 1, .1)
+	#save_path
+	# HACK nothing here works yet.
+	text_effects.typewriter_text("Done!", 0.01, 3, .1)
+	text_effects.typewriter_text("Starting...", 0.01, 1, .1)
+
 
 
 
