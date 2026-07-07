@@ -86,6 +86,7 @@ def pick_savefile():
 	global current_savefile
 	check = input("Choose save (Use numbers, or 'exit'): ")
 	print("")
+	
 
 	if check.lower() == "exit":
 		sys.exit("Exiting... ")
@@ -95,7 +96,14 @@ def pick_savefile():
 		
 		match check_num:
 			case int():
-				current_savefile = check
+				if check_num in range(1, saves_count + 1):#add 1 to be inclusive
+					print(check_num)
+					current_savefile = check
+					load_save(current_savefile)
+				else:
+					print("Not a selectable story.")
+					pick_savefile()
+				
 
 	except ValueError:
 		text_effects.typewriter_text("Error. Please use numbers.", 0.01, 2, 0)
