@@ -5,13 +5,24 @@
     "id": "origin",
     "version": "0.1.0"
   },
-  "default_save": {
-    "save_name": "origin",
-    "current_node": "start",
-    "times_played": 0,
-    "trust": false,
-    "bits": 0
+  
+  "continue_story":{
+    "types": [
+      {
+        "happy": {
+          "text": "Hey! Great to see you again!"
+        },
+        "shy": {
+          "text": "H-hello again..."
+        },
+        "unhappy": {
+          "text": "Let's get on with it..."
+        }
+      }
+    ]
   },
+
+
   
   "nodes": {
 
