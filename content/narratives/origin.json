@@ -21,8 +21,24 @@
       "newline": 1,
       "pause": 3,
       "text": "H-hello?",
-      "next": "intro_p1"
+      "choices": [
+        {
+          "text": "Who's there?",
+          "set": {
+            "interested": true
+          },
+          "next": "intro_p1"
+        },
+        {
+          "text": "Say nothing.",
+          "set": {
+            "interested":false
+          },
+          "next": "intro_sus_1"
+        }
+      ]
     },
+
     "intro_p1": {
       "effect": "regular",
       "speed": 0.06,
@@ -32,6 +48,7 @@
       "commands": "get_name",
       "next": "intro_p2"
     },
+
     "intro_p2": {
       "effect": "regular",
       "speed": 0.05,
@@ -39,6 +56,16 @@
       "pause": 2,
       "text": "{player_name}?",
       "next": "intro_p3"
+    },
+
+    "intro_sus_1": {
+      "effect": "regular",
+      "speed": 0.06,
+      "newline": 1,
+      "pause": 3,
+      "text": "N-nobody? Anybody??",
+      "commands": "get_name",
+      "next": "intro_p2"
     }
   }
 }
