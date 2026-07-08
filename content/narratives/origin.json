@@ -9,15 +9,18 @@
   "continue_story":{
     "types": [
       {
-        "happy": {
-          "text": "Hey! Great to see you again!"
-        },
-        "shy": {
-          "text": "H-hello again..."
-        },
-        "unhappy": {
-          "text": "Let's get on with it..."
-        }
+        "happy": [ 
+          {"text": "Hey! Great to see you again!"},
+          {"text": "Let's do this!"}
+        ],
+        "shy": [ 
+          {"text": "H-hello again..."},
+          {"text": "O-okay, lets go..."}
+        ],
+        "unhappy": [
+          {"text": "Let's get on with it..."}
+          {"text": "..."}
+        ]
       }
     ]
   },
