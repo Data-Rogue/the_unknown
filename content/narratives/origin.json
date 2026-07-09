@@ -11,15 +11,18 @@
       {
         "happy": [ 
           {"text": "Hey! Great to see you again!"},
-          {"text": "Let's do this!"}
+          {"text": "Let's do this!"},
+          {"text": "Alright! LETS GOOOO!!"}
         ],
         "shy": [ 
           {"text": "H-hello again..."},
-          {"text": "O-okay, lets go..."}
+          {"text": "O-okay, lets go..."},
+          {"text": "A-alright, I guess lets get started..."}
         ],
         "unhappy": [
           {"text": "Let's get on with it..."},
-          {"text": "..."}
+          {"text": "..."},
+          {"text": "you again?"}
         ]
       }
     ]
