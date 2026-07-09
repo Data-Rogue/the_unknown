@@ -23,5 +23,7 @@ Developing an interactive story framework. Json powers the story.
  - Json parser turns data into arguments.
  - More...
 
-
+### Debatable future features
+ - MARKDOWN or TEXT EFFECTS???
+    `Elements could accidentally be printed when typed. Like "*HA!*"`
 ---
