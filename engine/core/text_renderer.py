@@ -12,8 +12,6 @@ from engine.core import text_effects
 
 current_node = ""
 
-def parse_data(data):
-    get_metadata(data)
 
 
 
@@ -26,14 +24,26 @@ def get_metadata(data):
                 pass
 
 
+def resume_game(save):
+    global current_node
+
+    if save["resume_node"]:
+        current_node = save["resume_node"]
+        print(current_node)
+    else:
+        current_node = "start"
+        print(current_node)
+
+
 def get_story(data, save):
     global current_node
 
     for block in data["nodes"]:
+        
+        pass
 
-        if block == "start":
-            current_node = "start"##-------------remake to check if a save is selected.
-            print(current_node)
-        else:
-            print("pass")
-            pass
+
+def parse_data(data, save):
+    get_metadata(data)
+    resume_game(save)
+    

@@ -18,7 +18,7 @@
           {"text": "O-okay, lets go..."}
         ],
         "unhappy": [
-          {"text": "Let's get on with it..."}
+          {"text": "Let's get on with it..."},
           {"text": "..."}
         ]
       }
