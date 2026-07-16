@@ -85,8 +85,9 @@ def pick_savefile():
 	global current_savefile, savefile
 	check = input("Choose save (Use numbers, or 'exit'): ")
 	print("")
-	print(len(saves_found))
+	print(type(len(saves_found)))#returns int
 
+	time.sleep(3)
 	if check.lower() == "exit":
 		sys.exit("Exiting... ")
 	
