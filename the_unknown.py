@@ -1,10 +1,4 @@
-import os ##pretty straight forward
 import time
-import re## import regex!!!!! USE THIS!
-import random
-import string
-import sys
-import json
 from engine.core import save_system
 from pathlib import Path
 from engine import start
@@ -19,14 +13,14 @@ from engine.core import text_renderer
 #print(f"Times played: {save_system.times_played("read")}")
 
 # narrative1 = Path("content/narratives/origin.json")
-# gamedata = ""
+# game_data = ""
 # with narrative1.open('r', encoding='utf-8') as file:
 		
-# 		gamedata = json.load(file)
+# 		game_data = json.load(file)
 
 
-# text_renderer.parse_data(gamedata)
-#text_renderer.get_story(gamedata)
+# text_renderer.parse_data(game_data)
+#text_renderer.get_story(game_data)
 
 #time.sleep(30)
 game.start_game()
