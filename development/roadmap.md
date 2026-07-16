@@ -24,6 +24,7 @@ Developing an interactive story framework. Json powers the story.
  - More...
 
 ### Debatable future features
- - MARKDOWN or TEXT EFFECTS???
-    `Elements could accidentally be printed when typed. Like "*HA!*"`
+ - MARKDOWN or Terminal color text effects
+    
+    `Problem: arguments could accidentally be printed when typed. Like '*'`
 ---
