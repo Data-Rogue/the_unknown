@@ -16,7 +16,6 @@ save_path = Path("saves")#path to all savefiles
 
 current_savefile = 0
 current_story = ""
-saves_count = 0
 story_count = 0
 selected_story = 0
 
@@ -51,10 +50,10 @@ def get_saves(narrative_name):
 	"""
 	Gets saves for selected savefile.
 	"""
-	global saves_count, saves_found
+	global saves_found
 	pattern =  f"{narrative_name}*.json"
 	saves_found.clear()
-	saves_count = 0
+	saves_count = 0 ## DELETE: old variable
 	
 	text_effects.clear_terminal()
 	text_effects.typewriter_text(f"Saves for {narrative_name}", 0.05, 3)
@@ -69,7 +68,7 @@ def get_saves(narrative_name):
 
 	match saves_count:
 		case 0:
-			# TODO: Make this make a new save if none are found.
+			# TODO: Make new save if none are found.
 			text_effects.typewriter_text("None found.", 0.01, 1, .1)
 			make_savefile(narrative_name)
 		case count if count > 0:
@@ -83,10 +82,10 @@ def pick_savefile():
 	"""
 	Pick savefile from user input.
 	"""
-	global current_savefile
+	global current_savefile, savefile
 	check = input("Choose save (Use numbers, or 'exit'): ")
 	print("")
-	
+	print(len(saves_found))
 
 	if check.lower() == "exit":
 		sys.exit("Exiting... ")
@@ -96,7 +95,7 @@ def pick_savefile():
 		
 		match check_num:
 			case int():
-				if check_num in range(1, saves_count + 1):#add 1 to be inclusive
+				if check_num in range(1, len(saves_found) + 1):#add 1 to be inclusive
 					print(check_num)
 					current_savefile = check
 					savefile = saves_found[check]
