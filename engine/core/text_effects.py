@@ -23,6 +23,7 @@ def glitch_text(text, glitch_chance=0.08):
 
 	return glitched
 
+
 def typewriter_glitch(text, delay=0.05, glitch_chance=0.08, burst_chance=0.15, newline=True, newline_amount=1):
 	for char in text:
 		# Random glitch bursts (whole word distortion moment)
@@ -66,6 +67,24 @@ def typewriter_text(text, speed=0.5, newline_amount=1, pause_time=0):
 			print() #newline	
 	if pause_time > 0:
 		time.sleep(pause_time)
+
+
+def delete_typewriter_text(length=1, speed=0.05, pause_time=0):
+	"""
+	Delete text with a typewriter effect.
+
+	length: amount of characters you want to delete.
+
+	speed: delay before the next character is deleted.
+
+	pause_time: how long to sleep or pause the terminal before continuing.
+	"""
+	for _ in range(length + 1):
+		print("\b \b", end="", flush=True)
+		time.sleep(speed)
+	if pause_time >= 0:
+		time.sleep(pause_time)
+
 
 
 
