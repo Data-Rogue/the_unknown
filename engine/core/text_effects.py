@@ -11,7 +11,7 @@ def clear_terminal():
 	os.system('clear')
 
 
-def glitch_text(text, glitch_chance=0.08):
+def glitch_text(text: str, glitch_chance: float = 0.08):
 	glitch_chars = string.ascii_letters + string.digits + "#$%&@!?\\/|"
 
 	glitched = ""
@@ -24,7 +24,7 @@ def glitch_text(text, glitch_chance=0.08):
 	return glitched
 
 
-def typewriter_glitch(text, delay=0.05, glitch_chance=0.08, burst_chance=0.15, newline=True, newline_amount=1):
+def typewriter_glitch(text: str, delay: float = 0.05, glitch_chance: float = 0.08, burst_chance: float = 0.15, newline: bool = True, newline_amount: int = 1):
 	for char in text:
 		# Random glitch bursts (whole word distortion moment)
 		if random.random() < burst_chance:
@@ -49,7 +49,7 @@ def typewriter_glitch(text, delay=0.05, glitch_chance=0.08, burst_chance=0.15, n
 
 
 
-def typewriter_text(text, speed=0.5, newline_amount=1, pause_time=0):
+def typewriter_text(text: str, speed: float = 0.5, newline_amount: int = 1, pause_time: float = 0):
 	"""
 	text: What you want to print to the terminal.
 
@@ -69,7 +69,7 @@ def typewriter_text(text, speed=0.5, newline_amount=1, pause_time=0):
 		time.sleep(pause_time)
 
 
-def delete_typewriter_text(length=1, speed=0.05, pause_time=0):
+def delete_typewriter_text(length: int = 1, speed: float = 0.05, pause_time: float = 0):
 	"""
 	Delete text with a typewriter effect.
 
@@ -88,7 +88,7 @@ def delete_typewriter_text(length=1, speed=0.05, pause_time=0):
 
 
 
-def progress_bar(total=30, delay=0.05):
+def progress_bar(total: int = 30, delay: float = 0.05):
 	for i in range(total + 1):
 		percent = int((i / total) * 100)
 		bar = "#" * i + "-" * (total - i)
