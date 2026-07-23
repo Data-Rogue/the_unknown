@@ -84,20 +84,20 @@ def pick_savefile():
 	"""
 	global current_savefile, savefile
 
+	check = input("Choose save (Use numbers, or 'exit'): ")
+
 	try:
-		check = int(input("Choose save (Use numbers): "))
+		check = int(check)
 
 	except (ValueError, TypeError):
-		text_effects.typewriter_text("Error. Please use numbers.", 0.01, 2, 0)
-		return pick_savefile()
+		if check.lower() == "exit":
+			sys.exit("Exiting... ")
+		else:
+			text_effects.typewriter_text("Error. Please use numbers.", 0.01, 2, 0)
+			return pick_savefile()
 
 	print("")
-	print(type(len(saves_found)))#returns int
-	time.sleep(3)
 
-	# if check.lower() == "exit":
-	# 	sys.exit("Exiting... ")
-	
 	
 	if check in range(1, len(saves_found) + 1):#add 1 to be inclusive
 		print(check)
@@ -105,8 +105,12 @@ def pick_savefile():
 		print(type(check))
 
 		time.sleep(4)
-		savefile = saves_found[check]
+		savefile = saves_found[check - 1]
 		load_save(current_savefile)
+
+	elif check == 0:
+		make_savefile("narrative_name")## HACK: FIX THIS. Currently does not pass useable name to make_savefile()
+
 	else:
 		print("Not a selectable story.")
 		pick_savefile()
