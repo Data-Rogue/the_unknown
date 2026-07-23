@@ -83,32 +83,35 @@ def pick_savefile():
 	Pick savefile from user input.
 	"""
 	global current_savefile, savefile
-	check = input("Choose save (Use numbers, or 'exit'): ")
-	print("")
-	print(type(len(saves_found)))#returns int
 
-	time.sleep(3)
-	if check.lower() == "exit":
-		sys.exit("Exiting... ")
-	
 	try:
-		check_num = int(check)
-		
-		match check_num:
-			case int():
-				if check_num in range(1, len(saves_found) + 1):#add 1 to be inclusive
-					print(check_num)
-					current_savefile = check
-					savefile = saves_found[check]
-					load_save(current_savefile)
-				else:
-					print("Not a selectable story.")
-					pick_savefile()
-				
+		check = int(input("Choose save (Use numbers): "))
 
-	except ValueError:
+	except (ValueError, TypeError):
 		text_effects.typewriter_text("Error. Please use numbers.", 0.01, 2, 0)
 		return pick_savefile()
+
+	print("")
+	print(type(len(saves_found)))#returns int
+	time.sleep(3)
+
+	# if check.lower() == "exit":
+	# 	sys.exit("Exiting... ")
+	
+	
+	if check in range(1, len(saves_found) + 1):#add 1 to be inclusive
+		print(check)
+		current_savefile = check
+		print(type(check))
+
+		time.sleep(4)
+		savefile = saves_found[check]
+		load_save(current_savefile)
+	else:
+		print("Not a selectable story.")
+		pick_savefile()
+				
+
 	
 	print(f"Save chosen: {current_savefile}")
 	
@@ -156,7 +159,7 @@ def check_saves():###Make it so it saves the stories as: "title_save" but lowerc
 
 
 	global current_save
-def load_save():
+def load_save(savefile):
 	pass
 
 
