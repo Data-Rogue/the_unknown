@@ -7,10 +7,6 @@ from engine.core import text_effects
 from engine.core import save_system
 from engine.core import text_renderer
 
-#save_system.check_saves()
-#save_system.on_start_checks()# This will exit if the program is missing the dialogue.
-#save_system.times_played("increment")
-#print(f"Times played: {save_system.times_played("read")}")
 
 # narrative1 = Path("content/narratives/origin.json")
 # game_data = ""
