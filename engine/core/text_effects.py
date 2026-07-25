@@ -5,10 +5,10 @@ import os
 
 
 
-#This file contains all the text effects for the game.
+#This file contains all the text effects for the engine.
 
 def clear_terminal():
-	os.system('clear')
+	os.system('clear') ##Replace with subprocess
 
 
 def glitch_text(text: str, glitch_chance: float = 0.08):
