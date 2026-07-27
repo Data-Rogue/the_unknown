@@ -30,13 +30,13 @@ def get_stories():
 
 	story_count = 0
 	text_effects.clear_terminal()
-	text_effects.typewriter_text("Stories ", 0.05, 2)
+	text_effects.typewriter_text("Stories ", 0.05, 0, 2)
 
 
 	for file in dialogue_path.rglob("*.json"):
 		story_count += 1
 		stories_found.append(file)
-		text_effects.typewriter_text(f"{story_count}: {file.stem} at {dialogue_path}", 0.01, 1, .1)
+		text_effects.typewriter_text(f"{story_count}: {file.stem} at {dialogue_path}", 0.01, 0, 1, 0.1)
 		print("\n")
 	
 	if story_count <= 0:
@@ -56,20 +56,20 @@ def get_saves(narrative_name):
 	saves_count = 0 ## DELETE: old variable
 	
 	text_effects.clear_terminal()
-	text_effects.typewriter_text(f"Saves for {narrative_name}", 0.05, 3)
-	text_effects.typewriter_text("0: New file", 0.01, 2, .1)
+	text_effects.typewriter_text(f"Saves for {narrative_name}", 0.05, 0, 3)
+	text_effects.typewriter_text("0: New file", 0.01, 0, 2, .1)
 
 	for file in save_path.rglob(pattern):
 		saves_count += 1
 		saves_found.append(file)
-		text_effects.typewriter_text(f"{saves_count}: {file.stem} at {save_path}", 0.01, 1, .1)
+		text_effects.typewriter_text(f"{saves_count}: {file.stem} at {save_path}", 0.01, 0, 1, .1)
 		print("\n")
 
 
 	match saves_count:
 		case 0:
 			# TODO: Make new save if none are found.
-			text_effects.typewriter_text("None found.", 0.01, 1, .1)
+			text_effects.typewriter_text("None found.", 0.01, 0, 1, .1)
 			make_savefile(narrative_name)
 		case count if count > 0:
 			pick_savefile()
@@ -93,7 +93,7 @@ def pick_savefile():
 		if check.lower() == "exit":
 			sys.exit("Exiting... ")
 		else:
-			text_effects.typewriter_text("Error. Please use numbers.", 0.01, 2, 0)
+			text_effects.typewriter_text("Error. Please use numbers.", 0.01, 0, 2, 0)
 			return pick_savefile()
 
 	print("")
@@ -146,7 +146,7 @@ def pick_story():
 					pick_story()
 
 	except ValueError:
-		text_effects.typewriter_text("Error. Please use numbers.", 0.01, 2, 0)
+		text_effects.typewriter_text("Error. Please use numbers.", 0.01, 0, 2, 0)
 		return pick_story()
 	
 
@@ -176,7 +176,7 @@ def load_story(story):##Fix so that it loads savefile if picked.
 	story_path = stories_found[index] #Returns path
 	narrative_name = story_path.stem
 
-	#text_effects.typewriter_text("WAITING for debug...", 0.04, 2, 15)
+	#text_effects.typewriter_text("WAITING for debug...", 0.04, 0, 2, 15)
 
 	#GET THE SAVES BASED ON THE NAME OF THE STORIES!!!
 	get_saves(narrative_name)
@@ -222,11 +222,11 @@ def read_save(key, default=None):
 	return basic_data.get(key, default)
 
 def make_savefile(name):
-	text_effects.typewriter_text("Creating new savefile...", 0.01, 1, .1)
+	text_effects.typewriter_text("Creating new savefile...", 0.01, 0, 1, .1)
 	#save_path
 	# HACK nothing here works yet.
-	text_effects.typewriter_text("Done!", 0.01, 3, .1)
-	text_effects.typewriter_text("Starting...", 0.01, 1, .1)
+	text_effects.typewriter_text("Done!", 0.01, 0, 3, .1)
+	text_effects.typewriter_text("Starting...", 0.01, 0, 1, .1)
 
 
 
