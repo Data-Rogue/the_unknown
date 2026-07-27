@@ -2,7 +2,7 @@ import string
 import random
 import time
 import os
-
+import random
 
 
 #This file contains all the text effects for the engine.
@@ -49,22 +49,45 @@ def typewriter_glitch(text: str, delay: float = 0.05, glitch_chance: float = 0.0
 
 
 
-def typewriter_text(text: str, speed: float = 0.5, newline_amount: int = 1, pause_time: float = 0):
+def typewriter_text(
+		text: str, 
+		speed: float = 0.5,
+		speed_random: float = 0,
+		newline_amount: int = 1, 
+		pause_time: float = 0
+		):
 	"""
 	text: What you want to print to the terminal.
 
 	speed: How much time before the next character is printed.
 
+	speed_random: Randomize amount of pause time before next character is printed. (Affects 'speed')
+
 	newline_amount: How many indents to leave for the next sentence. If equal to 0, no indentation.
 
 	pause_time: how long to sleep or pause the terminal before continuing.
 	"""
-	for char in text:
-		print(char, end="", flush=True)
-		time.sleep(speed)
+
+	if speed_random > 0:# Check if speed_random is used.
+		for char in text:
+			print(char, end="", flush=True)
+
+			#Does not account for negative numbers.
+			#I tried subtracting the speed_random from speed
+			#and got a negative time error for time.sleep()
+				
+			rand_num = random.uniform(speed, speed + speed_random) # HACK: Not ready. Must account for negative numbers. Read comment above.
+		
+			time.sleep(rand_num)
+	else:
+		for char in text:
+			print(char, end="", flush=True)
+			time.sleep(speed)
+
 	if newline_amount > 0:
 		for i in range(newline_amount):
-			print() #newline	
+			print() #newline
+
 	if pause_time > 0:
 		time.sleep(pause_time)
 
@@ -79,10 +102,10 @@ def delete_typewriter_text(length: int = 1, speed: float = 0.05, pause_time: flo
 
 	pause_time: how long to sleep or pause the terminal before continuing.
 	"""
-	for _ in range(length + 1):
+	for _ in range(length + 1): # TODO:  +1 accounts for cursor whitespace. Not tested yet.
 		print("\b \b", end="", flush=True)
 		time.sleep(speed)
-	if pause_time >= 0:
+	if pause_time > 0:
 		time.sleep(pause_time)
 
 
