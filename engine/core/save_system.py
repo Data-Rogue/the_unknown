@@ -3,6 +3,8 @@ import json
 import sys
 from engine.core import text_effects
 import time
+from engine import commands
+
 
 basic_data = {}
 dialogue = []
@@ -29,7 +31,7 @@ def get_stories():
 	stories_found.clear()
 
 	story_count = 0
-	text_effects.clear_terminal()
+	commands.clear_terminal()
 	text_effects.typewriter_text("Stories ", 0.05, 0, 2)
 
 
@@ -55,7 +57,7 @@ def get_saves(narrative_name):
 	saves_found.clear()
 	saves_count = 0 ## DELETE: old variable
 	
-	text_effects.clear_terminal()
+	commands.clear_terminal()
 	text_effects.typewriter_text(f"Saves for {narrative_name}", 0.05, 0, 3)
 	text_effects.typewriter_text("0: New file", 0.01, 0, 2, .1)
 
@@ -159,10 +161,9 @@ def pick_story():
 def check_saves():###Make it so it saves the stories as: "title_save" but lowercase like;  .lower() and add 1,2,3 ect at the end in the folders
 	#get_saves()
 	pick_savefile()
-
-
-
 	global current_save
+
+
 def load_save(savefile):
 	pass
 

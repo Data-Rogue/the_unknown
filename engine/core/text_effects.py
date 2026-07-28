@@ -3,12 +3,10 @@ import random
 import time
 import os
 import random
+import subprocess
+from engine import commands
 
 
-#This file contains all the text effects for the engine.
-
-def clear_terminal():
-	os.system('clear') ##Replace with subprocess
 
 
 def glitch_text(text: str, glitch_chance: float = 0.08):
