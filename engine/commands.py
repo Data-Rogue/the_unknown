@@ -1,6 +1,6 @@
 import os
 import subprocess
-
+import sys
 
 def commands(cmd = "",):
     """
@@ -13,7 +13,7 @@ def commands(cmd = "",):
 
 
 def clear_terminal():#It uh... clear the terminal. Yeah.
-	if os.name == "nt":
+	if sys.platform.startswith("win"):#For future, for platform specific things
 		subprocess.run(["cls"], shell=True, check=False)
 	else:
-		print("\033[2J\033[H", end="", flush=True)
+		subprocess.run(["clear"], check=False)
