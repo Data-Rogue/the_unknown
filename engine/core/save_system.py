@@ -10,7 +10,7 @@ basic_data = {}
 dialogue = []
 saves_found = []
 stories_found = []
-stories_found_var = []
+
 
 dialogue_path = Path("content/narratives")
 savefile = Path("saves")#this is the path to the actual savefile
@@ -22,7 +22,7 @@ story_count = 0
 selected_story = 0
 
 
-
+#TODO: return dictionary and parse story to get metadata.
 def get_stories():
 	"""
 	Grabs stories and append paths into stories_found.
@@ -34,8 +34,10 @@ def get_stories():
 	commands.clear_terminal()
 	text_effects.typewriter_text("Stories ", 0.05, 0, 2)
 
-
-	for file in dialogue_path.rglob("*.json"):
+#---------------------------Load story and extract metadata per story. Append all story data to dict or something.
+#---------------------------Print some metadata for each story(like; name, version, ect.)
+#---------------------------When a story is selected, move story to current story(like '.pop()'), and clear variable to free up memory.
+	for file in dialogue_path.rglob("story.json"):##HACK :Saves should go in the narrative's folder!
 		story_count += 1
 		stories_found.append(file)
 		text_effects.typewriter_text(f"{story_count}: {file.stem} at {dialogue_path}", 0.01, 0, 1, 0.1)
@@ -48,7 +50,7 @@ def get_stories():
 		
 
 
-def get_saves(narrative_name):
+def get_saves(narrative_name):#HACK: Saves should go in the narrative's folder!
 	"""
 	Gets saves for selected savefile.
 	"""
