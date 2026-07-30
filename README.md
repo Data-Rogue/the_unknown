@@ -17,17 +17,17 @@ The project includes a starter narrative called **Origin**, but the engine is de
 
   - Persistent Progress
 
----
+
 
 ## Save System and File Creation
 
 To ensure your privacy and security, this program follows a strict file-access policy.
 
-  **Standard**: The engine stores save files in its dedicated save directory. If a valid save is found for the current narrative, progress will be loaded automatically.
+  **Standard**: The engine stores save files in each story's save directory. If a valid save is found for the current narrative, progress can be loaded.
 
   **File Creation**: If no save file or directory exists, the game will automatically create the required files and folders.
 
----
+
 
 ## Installation & Usage
 
