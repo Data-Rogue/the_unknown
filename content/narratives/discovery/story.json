@@ -1,20 +1,88 @@
-[
-  {
-    "effect": "regular",
-    "text": "H-hello?",
-    "speed": 0.06,
-    "newline": 1,
-    "pause": 3
+{
+  "metadata": {
+    "title": "Discovery",
+    "author": "Hazmat Harry",
+    "id": "discovery",
+    "version": "0.1.0"
   },
-  {
-    "effect":"regular",
-    "text": "Who's there??",
-    "speed": 0.1,
-    "delay": 2
+  
+  "continue_story":{
+    "types": [
+      {
+        "happy": [ 
+          {"text": "Hey! Great to see you again!"},
+          {"text": "Let's do this!"},
+          {"text": "Alright! LETS GOOOO!!"}
+        ],
+        "shy": [ 
+          {"text": "H-hello again..."},
+          {"text": "O-okay, lets go..."},
+          {"text": "A-alright, I guess lets get started..."}
+        ],
+        "unhappy": [
+          {"text": "Let's get on with it..."},
+          {"text": "..."},
+          {"text": "You again?"}
+        ]
+      }
+    ]
   },
-  {
-    "text": "Hmm...",
-    "speed": 0.1,
-    "delay": 1.5
+
+
+  
+  "nodes": {
+
+    "start": {
+      "effect": "regular",
+      "speed": 0.06,
+      "newline": 1,
+      "pause": 3,
+      "text": "H-hello?",
+      "choices": [
+        {
+          "text": "Who's there?",
+          "set": {
+            "interested": true
+          },
+          "next": "intro_p1"
+        },
+        {
+          "text": "Say nothing.",
+          "set": {
+            "interested":false
+          },
+          "next": "intro_sus_1"
+        }
+      ]
+    },
+
+    "intro_p1": {
+      "effect": "regular",
+      "speed": 0.06,
+      "newline": 1,
+      "pause": 3,
+      "text": "W-who's there??",
+      "commands": "get_name",
+      "next": "intro_p2"
+    },
+
+    "intro_p2": {
+      "effect": "regular",
+      "speed": 0.05,
+      "newline": 1,
+      "pause": 2,
+      "text": "{player_name}?",
+      "next": "intro_p3"
+    },
+
+    "intro_sus_1": {
+      "effect": "regular",
+      "speed": 0.06,
+      "newline": 1,
+      "pause": 3,
+      "text": "N-nobody? Anybody??",
+      "commands": "get_name",
+      "next": "intro_p2"
+    }
   }
-]
+}
