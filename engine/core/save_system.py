@@ -17,18 +17,21 @@ savefile = Path("saves")#this is the path to the actual savefile
 save_path = Path("saves")#path to all savefiles
 
 current_savefile = 0
-current_story = ""
+current_story = {} #Used to be a string, can't iterate through a string. (that I know of...)
 story_count = 0
 selected_story = 0
+
+stories: list = []
+
 
 
 #TODO: return dictionary and parse story to get metadata.
 def get_stories():
 	"""
-	Grabs stories and append paths into stories_found.
+	Grabs stories and append paths into stories.
 	"""
-	global story_count, stories_found
-	stories_found.clear()
+	global story_count, stories
+	stories.clear()
 
 	story_count = 0
 	commands.clear_terminal()
@@ -37,17 +40,48 @@ def get_stories():
 #---------------------------Load story and extract metadata per story. Append all story data to dict or something.
 #---------------------------Print some metadata for each story(like; name, version, ect.)
 #---------------------------When a story is selected, move story to current story(like '.pop()'), and clear variable to free up memory.
+
+
 	for file in dialogue_path.rglob("story.json"):##HACK :Saves should go in the narrative's folder!
 		story_count += 1
-		stories_found.append(file)
-		text_effects.typewriter_text(f"{story_count}: {file.stem} at {dialogue_path}", 0.01, 0, 1, 0.1)
+		
+		text_effects.typewriter_text(
+					f"{story_count}", 0.01, 0, 0, 0.1)
+
+		with file.open('r', encoding='utf-8') as f:
+			data = json.load(f)
+
+			if not isinstance(data, dict):
+				print(f"Error: {file} must begin with '{{}}', not a list '[]'.")
+				continue
+
+			if "metadata" not in data:
+				print(f"Error: {file} is missing 'metadata' section.")
+				continue
+
+			stories.append({
+				"path": file,
+				"metadata": data["metadata"]
+			})
+			
+		for key, value in data["metadata"].items():#Print metadata
+			text_effects.typewriter_text(f"  {key.title()}: {value}", 0.01, 0, 1, 0)
+
 		print("\n")
+		
+		# text_effects.typewriter_text(
+		# 	f"{story_count}: {file.parent.name} at {file.parent}", 
+		# 	0.01, 0, 1, 0.1
+		# 	)
+		
 	
 	if story_count <= 0:
 		sys.exit("Error: No playable stories have been found.")
 
 	pick_story()
-		
+
+
+
 
 
 def get_saves(narrative_name):#HACK: Saves should go in the narrative's folder!
@@ -176,10 +210,14 @@ def load_story(story):##Fix so that it loads savefile if picked.
 	global current_story
 	index = story - 1
 
-	story_path = stories_found[index] #Returns path
-	narrative_name = story_path.stem
+	print(index)
 
-	#text_effects.typewriter_text("WAITING for debug...", 0.04, 0, 2, 15)
+	
+	
+	story_path = stories[index]["path"]
+	narrative_name = stories[index]["metadata"]["title"] #This looks ugly. Sorry to future maintainers (If any lol, small project)
+
+
 
 	#GET THE SAVES BASED ON THE NAME OF THE STORIES!!!
 	get_saves(narrative_name)
@@ -187,8 +225,10 @@ def load_story(story):##Fix so that it loads savefile if picked.
 	with story_path.open('r', encoding='utf-8') as file:
 		current_story = json.load(file)
 
+	
+
 	#print(current_story)
-	return current_story
+	#return current_story
 
 
 
