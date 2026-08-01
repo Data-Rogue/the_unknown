@@ -1,6 +1,6 @@
 import json
 from engine.core import text_effects
-
+from engine import commands
 
 #make json parser to extract data into commands.
 
@@ -12,7 +12,7 @@ from engine.core import text_effects
 
 current_node = ""
 
-
+resume = False #Temp var until resume game or something is working
 
 
 def get_metadata(data):
@@ -38,12 +38,37 @@ def resume_game(save):
 def get_story(data, save):
     global current_node
 
-    for block in data["nodes"]:
+    if not resume:
+        current_node = "start"
+
+    text_effect = None
+    
+    for key, value in data["nodes"][current_node].items():
+        print(f"{key} with value of {value}")
+        match key:
+            case "effect":
+                match value:
+                    case "regular":
+                        text_effect = text_effects.typewriter_text()
+            case "speed":
+                pass
+            case "newline":
+                pass
+            case "pause":
+                pass
+            case "text":
+                pass
+            case "choices":
+                pass
+
         
-        pass
+        
+
+        
+        
 
 
 def parse_data(data, save):
-    get_metadata(data)
+    #get_metadata(data)
     resume_game(save)
     

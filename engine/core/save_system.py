@@ -4,10 +4,10 @@ import sys
 from engine.core import text_effects
 import time
 from engine import commands
-
+from engine.core import text_renderer
 
 basic_data = {}
-dialogue = []
+
 saves_found = []
 stories_found = []
 
@@ -109,6 +109,7 @@ def get_saves(narrative_name):#HACK: Saves should go in the narrative's folder!
 			# TODO: Make new save if none are found.
 			text_effects.typewriter_text("None found.", 0.01, 0, 1, .1)
 			make_savefile(narrative_name)
+
 		case count if count > 0:
 			pick_savefile()
 
@@ -220,11 +221,14 @@ def load_story(story):##Fix so that it loads savefile if picked.
 
 
 	#GET THE SAVES BASED ON THE NAME OF THE STORIES!!!
-	get_saves(narrative_name)
-	
-	with story_path.open('r', encoding='utf-8') as file:
-		current_story = json.load(file)
 
+	
+	#HACK:get_saves(narrative_name)#----------------------------------HACK: UNCOMMENT
+	
+	with story_path.open('r', encoding='utf-8') as f:
+		current_story = json.load(f)
+
+	text_renderer.get_story(current_story, None)
 	
 
 	#print(current_story)
