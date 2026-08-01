@@ -6,6 +6,13 @@
     "version": "0.1.0"
   },
   
+  "settings": {
+    "effect": "regular",
+    "speed": 0.04,
+    "newline": 1,
+    "pause": 3
+  },
+  
   "continue_story":{
     "types": [
       {
@@ -33,10 +40,6 @@
   "nodes": {
 
     "start": {
-      "effect": "regular",
-      "speed": 0.06,
-      "newline": 1,
-      "pause": 3,
       "text": "H-hello?",
       "choices": [
         {
@@ -57,31 +60,24 @@
     },
 
     "intro_p1": {
-      "effect": "regular",
       "speed": 0.06,
-      "newline": 1,
-      "pause": 3,
       "text": "W-who's there??",
-      "commands": "get_name",
+      "commands": [
+        "get_name"
+      ],
       "next": "intro_p2"
     },
 
     "intro_p2": {
-      "effect": "regular",
-      "speed": 0.05,
-      "newline": 1,
-      "pause": 2,
       "text": "{player_name}?",
       "next": "intro_p3"
     },
 
     "intro_sus_1": {
-      "effect": "regular",
-      "speed": 0.06,
-      "newline": 1,
-      "pause": 3,
       "text": "N-nobody? Anybody??",
-      "commands": "get_name",
+      "commands": [
+        "get_name"
+    ],
       "next": "intro_p2"
     }
   }
