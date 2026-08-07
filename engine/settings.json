@@ -1,0 +1,11 @@
+{
+    "Plugins": {
+        "Better Select": {
+            "enabled": false,
+            "path": ""
+        }
+    },
+
+
+    "Audio engine": "Unsupported"
+}
