@@ -30,7 +30,8 @@ def title_screen():
 
 
 def select_option(print_options: bool = True):
-    print("1: Start          2: Settings\n\n")
+    if print_options:
+        print("1: Start          2: Settings\n\n")
     user_input = input("Select: ")
 
     if user_input.lower() == "exit":
