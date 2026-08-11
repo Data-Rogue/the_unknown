@@ -2,7 +2,8 @@ from engine.core import save_system
 from engine.core import text_effects
 from engine import commands
 from engine import settings
-##read narratives and choose, when load saves by passing which story to start.
+import sys
+
 
 
 def choose_story():
@@ -28,17 +29,30 @@ def title_screen():
     select_option()
 
 
-
-def select_option():
+def select_option(print_options: bool = True):
     print("1: Start          2: Settings\n\n")
-    user_input : int = int(input("Select: "))#TODO: Add safety net to catch errors.
-    if user_input == 1:
-        choose_story()
-    elif user_input == 2:
-        pass #Settings
-    else:
-        print("Something went wrong.")
+    user_input = input("Select: ")
 
+    if user_input.lower() == "exit":
+         sys.exit("Exiting... ")
+
+    try:
+        check_num = int(user_input)
+        
+        match check_num:
+
+            case 1:
+                choose_story()
+            case 2:
+                pass #settings
+            case _:
+                text_effects.typewriter_text("Error. Please use numbers, or 'Exit'", 0.01, 0, 2, 0)
+                select_option(False)
+                
+    except ValueError:
+        text_effects.typewriter_text("Error. Please use numbers, or 'Exit'", 0.01, 0, 2, 0)
+        select_option(False)
+    
 
 
 
