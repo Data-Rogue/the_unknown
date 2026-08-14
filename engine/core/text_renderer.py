@@ -49,7 +49,8 @@ def get_story(data, save):
             case "effect":
                 match value:
                     case "regular":
-                        text_effect = text_effects.typewriter_text()
+                        pass
+                        #text_effect = text_effects.typewriter_text()
             case "speed":
                 pass
             case "newline":
