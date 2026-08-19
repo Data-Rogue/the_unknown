@@ -177,7 +177,7 @@ def pick_story():
 		match check_num:
 			case int():
 				if check_num in range(1, story_count + 1):#add 1 to be inclusive
-					print(check_num)
+					#print(check_num)
 
 					load_story(check_num)
 				else:
@@ -211,7 +211,7 @@ def load_story(story):##Fix so that it loads savefile if picked.
 	global current_story
 	index = story - 1
 
-	print(index)
+	#print(index)
 
 	
 	

@@ -43,29 +43,36 @@ def get_story(data, save):
 
     text_effect = None
     
-    for key, value in data["nodes"][current_node].items():
+    for key, value in data["nodes"][current_node].items():##Key = 'text,' 'choices,' ect.
         print(f"{key} with value of {value}")
+
+        
+        
+
+def parse_node(node):
+
+    for key, value in node.items():
         match key:
             case "effect":
-                match value:
-                    case "regular":
-                        pass
-                        #text_effect = text_effects.typewriter_text()
+                pass
+
             case "speed":
                 pass
+
             case "newline":
                 pass
+
             case "pause":
                 pass
+
             case "text":
                 pass
+
             case "choices":
-                pass
+                pass   
 
-        
-        
-
-        
+            case _:
+                print(f"Unknown command: {key}") 
         
 
 
