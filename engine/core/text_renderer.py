@@ -54,26 +54,46 @@ def parse_node(node):
     for key, value in node.items():
         match key:
             case "effect":
-                pass
+                handle_effect(value)
 
             case "speed":
-                pass
+                handle_speed(value)
 
             case "newline":
-                pass
+                handle_newline(value)
 
             case "pause":
-                pass
+                handle_pause(value)
 
             case "text":
-                pass
+                handle_text(value)
 
             case "choices":
-                pass   
+                handle_choices(value)
 
             case _:
                 print(f"Unknown command: {key}") 
+
+
         
+def handle_effect(value):
+    print("Effect: ", value)
+
+def handle_speed(value):
+    print("Speed: ", value)
+
+def handle_newline(value):
+    print("Newline: ", value)
+
+def handle_pause(value):
+    print("Pause: ", value)
+
+def handle_text(value):
+    print("Text: ", value)
+
+def handle_choices(value):
+    print("Choices: ", value)
+
 
 
 def parse_data(data, save):
