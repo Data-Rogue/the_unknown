@@ -6,6 +6,13 @@
     "version": "0.1.0"
   },
   
+  "default_settings": {
+    "effect": "regular",
+    "speed": 0.04,
+    "newline": 1,
+    "pause": 3
+  },
+  
   "continue_story":{
     "types": [
       {

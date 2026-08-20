@@ -15,13 +15,11 @@ current_node = ""
 resume = False #Temp var until resume game or something is working
 
 
-def get_metadata(data):
-    for block in data:
-        match block:
-            case "metadata":
-                pass
-            case "default_save":
-                pass
+def get_metadata(data) -> dict:
+    return data["metadata"]
+
+def get_default_settings(data) -> dict:
+    return data["default_settings"]
 
 
 def resume_game(save):

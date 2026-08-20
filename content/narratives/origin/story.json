@@ -6,7 +6,7 @@
     "version": "0.1.0"
   },
   
-  "settings": {
+  "default_settings": {
     "effect": "regular",
     "speed": 0.04,
     "newline": 1,
