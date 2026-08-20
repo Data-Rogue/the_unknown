@@ -41,10 +41,9 @@ def get_story(data, save):
     if not resume:
         current_node = "start"
 
-    text_effect = None
+    node = data["nodes"][current_node]
     
-    for key, value in data["nodes"][current_node].items():##Key = 'text,' 'choices,' ect.
-        print(f"{key} with value of {value}")
+    parse_node(node)
 
         
         
