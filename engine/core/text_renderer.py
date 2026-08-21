@@ -15,25 +15,20 @@ current_node = ""
 resume = False #Temp var until resume game or something is working
 
 
-def get_metadata(data) -> dict:
-    return data["metadata"]
-
-def get_default_settings(data) -> dict:
-    return data["default_settings"]
-
-
 def resume_game(save):
     global current_node
 
     if save["resume_node"]:
         current_node = save["resume_node"]
-        print(current_node)
+        resume = True
+        print(current_node)#HACK: FUTURE: Use the continue dialogue.
     else:
         current_node = "start"
+        resume = False
         print(current_node)
 
 
-def get_story(data, save):
+def get_story(data):#, save#NOTE Old argument
     global current_node
 
     if not resume:
@@ -43,7 +38,13 @@ def get_story(data, save):
     
     parse_node(node)
 
-        
+    
+
+def get_metadata(data) -> dict:
+    return data["metadata"]
+
+def get_default_settings(data) -> dict:
+    return data["default_settings"]
         
 
 def parse_node(node):
@@ -89,11 +90,12 @@ def handle_text(value):
     print("Text: ", value)
 
 def handle_choices(value):
-    print("Choices: ", value)
+    print("Choices: ", value)#Needs to change current node to the next once selected.
 
 
 
 def parse_data(data, save):
     #get_metadata(data)
-    resume_game(save)
+    #resume_game(save)
+    get_story(data)
     

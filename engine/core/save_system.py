@@ -228,7 +228,7 @@ def load_story(story):##Fix so that it loads savefile if picked.
 	with story_path.open('r', encoding='utf-8') as f:
 		current_story = json.load(f)
 
-	text_renderer.get_story(current_story, None)
+	text_renderer.parse_data(current_story, None)
 	
 
 	#print(current_story)
