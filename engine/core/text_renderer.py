@@ -16,7 +16,7 @@ resume = False #Temp var until resume game or something is working
 
 
 def resume_game(save):
-    global current_node
+    global current_node, resume
 
     if save["resume_node"]:
         current_node = save["resume_node"]
