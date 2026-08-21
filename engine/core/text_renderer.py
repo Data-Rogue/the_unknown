@@ -1,6 +1,7 @@
 import json
 from engine.core import text_effects
 from engine import commands
+import time
 
 #make json parser to extract data into commands.
 
@@ -13,6 +14,9 @@ from engine import commands
 current_node = ""
 
 resume = False #Temp var until resume game or something is working
+
+default_settings: dict = {}
+
 
 
 def resume_game(save):
@@ -29,13 +33,15 @@ def resume_game(save):
 
 
 def get_story(data):#, save#NOTE Old argument
-    global current_node
+    global current_node, default_settings
 
     if not resume:
         current_node = "start"
 
     node = data["nodes"][current_node]
-    
+
+    default_settings = get_default_settings(data)
+
     parse_node(node)
 
     
@@ -49,13 +55,21 @@ def get_default_settings(data) -> dict:
 
 def parse_node(node):
 
+    current_settings = default_settings
+
     for key, value in node.items():
         match key:
             case "effect":
-                handle_effect(value)
+                try:
+                    current_settings["effect"] = handle_effect(value)
+                except None:
+                    pass
 
             case "speed":
-                handle_speed(value)
+                try:
+                    current_settings["speed"] = handle_speed(value)
+                except:
+                    None
 
             case "newline":
                 handle_newline(value)
@@ -75,9 +89,14 @@ def parse_node(node):
 
         
 def handle_effect(value):
-    print("Effect: ", value)
+    if value:
+        return value #pretty useless right now, but here for the future.
+    else:
+        return None
+    #print("Effect: ", value)
 
 def handle_speed(value):
+    ##DO SOMETHING HERE!
     print("Speed: ", value)
 
 def handle_newline(value):
