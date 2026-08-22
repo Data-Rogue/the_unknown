@@ -70,6 +70,9 @@ def parse_node(node):
             case "choices":
                 handle_choices(value)
 
+            case "next":#if no choices node. make a check
+                pass
+
             case _:
                 print(f"Unknown command: {key}") 
 
