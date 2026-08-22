@@ -76,7 +76,9 @@
     "intro_sus_1": {
       "text": "N-nobody? Anybody??",
       "commands": [
-        "get_name"
+        {
+          "command": "get_name"
+        }
     ],
       "next": "intro_p2"
     }
