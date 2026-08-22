@@ -1,8 +1,11 @@
 # Roadmap
 
 ## Map key:
-[Current Progress](current-progress)
+- [Current Progress](current-progress)
 
+- [Current Focus](current-focus)
+
+- [Future Focus](future-focus)
 
 
 ## Current focus:
@@ -12,15 +15,16 @@ Developing an interactive story framework. Json powers the story.
  - **Security**: Add preprocessing to input strings to strip input from harmful arguments.
 
 
-## Current Progress ~ 17%
+## Current Progress ~ 26%
 ### Working on:
- - Organizing and splitting scripts and modules
  - New engine framework for multiple stories
  - Save system and engine parsing
+ - ADDING new special argument; "END", to signify a type of ending and special things. Can have multiple endings.
  - More...
 
 ### Future features:
- - Json parser turns data into arguments.
+ - More text effects
+ - Plugin support
  - More...
 
 ### Debatable future features
