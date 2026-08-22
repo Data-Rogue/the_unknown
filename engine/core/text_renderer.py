@@ -55,30 +55,17 @@ def get_default_settings(data) -> dict:
 
 def parse_node(node):
 
-    current_settings = default_settings
+    node_settings = default_settings.copy()
 
     for key, value in node.items():
+
         match key:
-            case "effect":
-                try:
-                    current_settings["effect"] = handle_effect(value)
-                except None:
-                    pass
-
-            case "speed":
-                try:
-                    current_settings["speed"] = handle_speed(value)
-                except:
-                    None
-
-            case "newline":
-                handle_newline(value)
-
-            case "pause":
-                handle_pause(value)
+            
+            case "effect" | "speed" | "newline" | "pause":
+                node_settings[key] = value
 
             case "text":
-                handle_text(value)
+                handle_text(value, node_settings)
 
             case "choices":
                 handle_choices(value)
@@ -88,25 +75,21 @@ def parse_node(node):
 
 
         
-def handle_effect(value):
-    if value:
-        return value #pretty useless right now, but here for the future.
-    else:
-        return None
-    #print("Effect: ", value)
+def handle_text(value, node_settings):
+    #print("Text: ", value, " ", node_settings)
+    match node_settings["effect"]:
+        case "regular":
+            text_effects.typewriter_text(
+                value,
+                speed = node_settings["speed"],
+                speed_random = 0,
+                newline_amount = node_settings["newline"],
+                pause_time = node_settings["newline"]
 
-def handle_speed(value):
-    ##DO SOMETHING HERE!
-    print("Speed: ", value)
+            )
 
-def handle_newline(value):
-    print("Newline: ", value)
-
-def handle_pause(value):
-    print("Pause: ", value)
-
-def handle_text(value):
-    print("Text: ", value)
+        
+    
 
 def handle_choices(value):
     print("Choices: ", value)#Needs to change current node to the next once selected.
