@@ -52,7 +52,7 @@
         {
           "text": "Say nothing.",
           "set": {
-            "interested":false
+            "interested": false
           },
           "next": "intro_sus_1"
         }
@@ -63,8 +63,10 @@
       "speed": 0.06,
       "text": "W-who's there??",
       "commands": [
-        "get_name"
-      ],
+        {
+          "command": "get_name"
+        }
+    ],
       "next": "intro_p2"
     },
 
