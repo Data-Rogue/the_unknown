@@ -44,7 +44,7 @@ Here's what these cells look like:
     "speed": 0.04,
     "newline": 1,
     "pause": 3
-  },
+  }
 }
 ```
 A few notes on these cells; 
