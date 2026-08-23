@@ -11,6 +11,14 @@ import time
 #chunk-by-chunk is not that efficient. It does for now, but keep
 #that in mind.
 
+engine_defaults: dict = {
+    "effect": "regular",
+    "speed": 0.04,
+    "newline": 1,
+    "pause": 1
+}
+
+
 current_node = ""
 
 resume = False #Temp var until resume game or something is working
@@ -40,7 +48,10 @@ def get_story(data):#, save#NOTE Old argument
 
     node = data["nodes"][current_node]
 
-    default_settings = get_default_settings(data)
+    if get_default_settings(data):
+        default_settings = get_default_settings(data)
+    else:
+        default_settings = engine_defaults.copy()
 
     parse_node(node)
 
