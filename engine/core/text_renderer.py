@@ -66,39 +66,61 @@ def get_default_settings(data) -> dict:
 
 def parse_node(node):
 
+
+    parsed = {
+        "settings": default_settings.copy(),
+        "text": None,
+        "choices": None,
+        "next": None
+    }
     node_settings = default_settings.copy()
 
     for key, value in node.items():
-
         match key:
             
             case "effect" | "speed" | "newline" | "pause":
-                node_settings[key] = value
+                parsed["settings"][key] = value
 
             case "text":
-                handle_text(value, node_settings)
+                parsed["text"] = value
 
             case "choices":
-                handle_choices(value)
+                parsed["choices"] = value
 
             case "next":#if no choices node. make a check
-                pass
+                parsed["next"] = value
 
             case _:
-                print(f"Unknown command: {key}") 
+                print(f"Unknown command: {key}")
+
+    return parsed
+
+
+def execute_node(node):
+
+    parsed = parse_node(node)
+
+    if parsed["text"] is not None:
+        handle_text(parsed["text"], parsed["settings"])
+
+    if parsed["choices"] is not None:
+        handle_choices(parsed["choices"])
+
+    if parsed["next"] is not None:
+        pass#TODO: Add logic to switch nodes
 
 
         
 def handle_text(value, node_settings):
     #print("Text: ", value, " ", node_settings)
-    match node_settings["effect"]:
+    match node_settings["settings"]["effect"]:
         case "regular":
             text_effects.typewriter_text(
                 value,
                 speed = node_settings["speed"],
                 speed_random = 0,
                 newline_amount = node_settings["newline"],
-                pause_time = node_settings["newline"]
+                pause_time = node_settings["pause"]
 
             )
 
