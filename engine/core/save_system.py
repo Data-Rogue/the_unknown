@@ -62,7 +62,7 @@ def get_stories():
 			stories.append({
 				"path": file,
 				"metadata": data["metadata"]
-			})
+			})##HACK: Make a check for the metadata for future releases such as incompatible version less than 2.0.0 if necessary
 			
 		for key, value in data["metadata"].items():#Print metadata
 			text_effects.typewriter_text(f"  {key.title()}: {value}", 0.01, 0, 1, 0)
