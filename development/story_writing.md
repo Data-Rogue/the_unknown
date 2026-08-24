@@ -1,6 +1,6 @@
 ## Map Key
-- [File placement](file-placement)
-- [Story writing](story-writing)
+- [File placement](#file-placement)
+- [Story writing](#story-writing)
 
 
 ## File placement
@@ -17,7 +17,7 @@ The folder containing all the stories is called "narratives". The path to this f
 
 ## Story writing
 
-After you have completed the steps above (see [File placement](file-placement)), create and open `story.json`.
+After you have completed the steps above (see [File placement](#file-placement)), create and open `story.json`.
 Then add 2 curly brackets like this:
 ```JSON
 {
@@ -50,7 +50,7 @@ Here's what these cells look like:
 A few notes on these cells; 
  - Indentation is important here. Be mindful of the row your working on
  - The 'id' should be equal to the title but lowercased
- - The 'default_settings' will be used for printing if each node doesn't specify its own. More on this [later](default-settings)
+ - The 'default_settings' will be used for printing if each node doesn't specify its own. More on this [later](#default-settings)
 
 
 ### Default settings
@@ -106,6 +106,3 @@ start <- (Name of node)
     |_Choice 1: "Who's there?" <- (This is text that will be printed
     |_Choice 2: "Say nothing." <-  as an option to choose from)
 ```
-
-This is important because ***the node is read top to bottom.***
-So if you put important arguments such as `"effect"`, `"speed"`, `"newline"` and `"pause"` AFTER `"text"`, then those arguments *WON'T* affect the print. Same goes for `"text"`. If you put `"choices"` or `"next"`(If you don't have 'choices' for that node) BEFORE `"text"` this will print just the choices or go to the next node.
