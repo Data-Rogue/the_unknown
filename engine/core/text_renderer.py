@@ -53,7 +53,8 @@ def get_story(data):#, save#NOTE Old argument
     else:
         default_settings = engine_defaults.copy()
 
-    parse_node(node)
+    execute_node(node)
+    # parse_node(node)
 
     
 
@@ -68,6 +69,7 @@ def parse_node(node):
 
 
     parsed = {
+        "interlude": None,
         "settings": default_settings.copy(),
         "text": None,
         "choices": None,
@@ -81,6 +83,9 @@ def parse_node(node):
             case "effect" | "speed" | "newline" | "pause":
                 parsed["settings"][key] = value
 
+            case "interlude":
+                parsed["interlude"] = value
+        
             case "text":
                 parsed["text"] = value
 
@@ -89,6 +94,7 @@ def parse_node(node):
 
             case "next":#if no choices node. make a check
                 parsed["next"] = value
+
 
             case _:
                 print(f"Unknown command: {key}")
@@ -100,6 +106,10 @@ def execute_node(node):
 
     parsed = parse_node(node)
 
+    if parsed["interlude"] is not None:
+        handle_interlude(parsed["interlude"])
+
+
     if parsed["text"] is not None:
         handle_text(parsed["text"], parsed["settings"])
 
@@ -109,11 +119,27 @@ def execute_node(node):
     if parsed["next"] is not None:
         pass#TODO: Add logic to switch nodes
 
+def handle_interlude(interlude_dict):
+    print(interlude_dict)
+    for command, value in interlude_dict.items():
+        
+        match command:
 
+            case "clear_screen":
+                if value:
+                    commands.clear_terminal()
+                
+            case "pause":
+                time.sleep(value)
+
+            case _:
+                print(f"Unknown interlude command: {command}")
+
+            
         
 def handle_text(value, node_settings):
-    #print("Text: ", value, " ", node_settings)
-    match node_settings["settings"]["effect"]:
+    match node_settings["effect"]:
+        
         case "regular":
             text_effects.typewriter_text(
                 value,
@@ -125,10 +151,10 @@ def handle_text(value, node_settings):
             )
 
         
-    
 
 def handle_choices(value):
-    print("Choices: ", value)#Needs to change current node to the next once selected.
+    pass
+    #print("Choices: ", value)#Needs to change current node to the next once selected.
 
 
 
