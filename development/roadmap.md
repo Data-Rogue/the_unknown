@@ -1,11 +1,11 @@
 # Roadmap
 
 ## Map key:
-- [Current Progress](current-progress)
+- [Current Progress](#current-progress)
 
-- [Current Focus](current-focus)
+- [Current Focus](#current-focus)
 
-- [Future Focus](future-focus)
+- [Future Focus](#future-focus)
 
 
 ## Current focus:
