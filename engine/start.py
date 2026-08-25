@@ -22,7 +22,7 @@ def start_boot():
 
 def title_screen():
     print(title_ascii)
-    print("Version 0.1.6")
+    print("Version 0.2.0")
     print("Created by Hazmat Harry")
     print("\n\n")
     
