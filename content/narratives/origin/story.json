@@ -42,7 +42,7 @@
     "start": {
       "interlude": {
         "clear_screen": true,
-        "pause": 5
+        "pause": 3
       },
       "text": "H-hello?",
       "choices": [
