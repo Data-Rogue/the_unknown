@@ -44,7 +44,9 @@ cd the_unknown
 ```Bash
 python3 the_unknown.py
 ```
----
+
+## Story writing
+ - See [story_writing.md](development/story_writing.md)
 
 ## Privacy Disclaimer
 
