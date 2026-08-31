@@ -1,4 +1,4 @@
-![The_unknown logo](assets/the_unknown_banner.png)
+![The_unknown logo](assets/the_unknown_banner.svg)
 
 ## The_Unknown
 
