@@ -2,7 +2,7 @@ import json
 from engine.core import text_effects
 from engine import commands
 import time
-
+import sys
 #make json parser to extract data into commands.
 
 
@@ -46,20 +46,21 @@ def get_story(data):#, save#NOTE Old argument
     if not resume:
         current_node = "start"
 
-    node = data["nodes"][current_node]
 
     if get_default_settings(data):
         default_settings = get_default_settings(data)
     else:
         default_settings = engine_defaults.copy()
 
-    execute_node(node)
+    
+    execute_node(data)
     # parse_node(node)
 
     
 
 def get_metadata(data) -> dict:
     return data["metadata"]
+
 
 def get_default_settings(data) -> dict:
     return data["default_settings"]
@@ -75,7 +76,7 @@ def parse_node(node):
         "choices": None,
         "next": None
     }
-    node_settings = default_settings.copy()
+    
 
     for key, value in node.items():
         match key:
@@ -102,13 +103,15 @@ def parse_node(node):
     return parsed
 
 
-def execute_node(node):
+def execute_node(data):
+    global current_node
+    
+    node = data["nodes"][current_node]
 
     parsed = parse_node(node)
 
     if parsed["interlude"] is not None:
         handle_interlude(parsed["interlude"])
-
 
     if parsed["text"] is not None:
         handle_text(parsed["text"], parsed["settings"])
@@ -117,7 +120,15 @@ def execute_node(node):
         handle_choices(parsed["choices"])
 
     if parsed["next"] is not None:
-        pass#TODO: Add logic to switch nodes
+        if parsed["next"] is not "end":
+            current_node = parsed["next"]
+            execute_node(data)
+        else:
+            pass
+        
+
+
+
 
 def handle_interlude(interlude_dict):
     print(interlude_dict)
@@ -152,9 +163,50 @@ def handle_text(value, node_settings):
 
         
 
-def handle_choices(value):
-    pass
+def handle_choices(choices):
+    print("\n\n---------------")
+    total_choices: int = 0
+    
+    for choice in choices:
+        total_choices += 1
+        
+        print(choice, "\n")
+        text_effects.typewriter_text(f"{total_choices}: {choice["text"]}", 0.03, 0, 1, 0)
+
+    check = check_for_input()
+    if check is not None:
+        pass
+    else:
+        check = check_for_input()
+    print(check)
+    # try:
+    #     check = int(check)
+    # except (ValueError, TypeError):
+    #     if check.lower() == "exit":
+    #         sys.exit("Exiting... ")
+    #     else:
+    #         text_effects.typewriter_text("Please use numbers.", 0.01, 0, 2, 0)
+
+
+        #print(total_choices, ": ", choice["text"])
+    # for command, value in cell:
+    #     print(f"\n command: {command}  |  value: {value}, \n")##NOT RIGHT!
+    #print("\n\n ", cell)
     #print("Choices: ", value)#Needs to change current node to the next once selected.
+
+def check_for_input():
+
+    check = input("Your decision: ")
+
+    try:
+        check = int(check)
+        return check
+    except (ValueError, TypeError):
+        if check.lower() == "exit":
+            sys.exit("Exiting... ")
+        else:
+            text_effects.typewriter_text("Please use numbers.", 0.01, 0, 2, 0)
+            
 
 
 
