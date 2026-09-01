@@ -150,6 +150,4 @@ Currently, the order of the cells does not matter[^1], but by maintaining clear 
 > In case you're wondering what the difference is between a "cell" and a "node": **A cell is a named section containing settings or arguments for a specific part of a node**. **A node is a collection of cells that describes a point in the story**.
 
 
----
-
 [^1]: The engine processes certain cells according to their defined behavior rather than their position in the JSON file. This means cells may be arranged for readability without changing the node's behavior.
