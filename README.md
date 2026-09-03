@@ -27,7 +27,10 @@ To ensure your privacy and security, this program follows a strict file-access p
 
   **File Creation**: If no save file or directory exists, the game will automatically create the required files and folders.
 
-
+## Prerequisites
+Before installing, ensure you have the following installed on your system
+- **Python 3.12.3 and up** (Recommended)
+- **Git** (To clone the repository)
 
 ## Installation & Usage
 
@@ -52,6 +55,9 @@ python3 the_unknown.py
 
 This project only reads from and writes to its designated save directory. It does not modify unrelated files on your system or transmit data externally.
 You are encouraged to review the source code to verify its behavior firsthand.
+
+## License
+This project is licensed under the MIT [License](LICENSE)
 
 ***Created by Hazmat Harry***
 
