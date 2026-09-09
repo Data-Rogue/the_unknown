@@ -24,14 +24,15 @@ def title_screen():
     print(title_ascii)
     print("Version 0.2.0")
     print("Created by Hazmat Harry")
-    print("\n\n")
+    print("\n")
     
     select_option()
 
 
 def select_option(print_options: bool = True):
     if print_options:
-        print("1: Start          2: Settings\n\n")
+        print("""1: Start\n2: Install Story\n3: Manage Stories\n4: Settings\n5: Exit\n""")
+
     user_input = input("Select: ")
 
     if user_input.lower() == "exit":
@@ -43,9 +44,15 @@ def select_option(print_options: bool = True):
         match check_num:
 
             case 1:
-                choose_story()
+                choose_story()#start
             case 2:
+                pass #install stories from github
+            case 3:
+                pass #manage stories: delete, ect.
+            case 4:
                 pass #settings
+            case 5:
+                sys.exit("Exiting... ")#Exit lol
             case _:
                 text_effects.typewriter_text("Error. Please use numbers, or 'Exit'", 0.01, 0, 2, 0)
                 select_option(False)
