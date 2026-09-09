@@ -38,6 +38,9 @@ def select_option(print_options: bool = True):
     if user_input.lower() == "exit":
          sys.exit("Exiting... ")
 
+    if user_input.lower() == "dev" or "debug":
+        pass#Make dev mode print out debugging info, or even a template for what to print! (Future)
+
     try:
         check_num = int(user_input)
         
@@ -47,10 +50,16 @@ def select_option(print_options: bool = True):
                 choose_story()#start
             case 2:
                 pass #install stories from github
+                #Basically grabs available stories from : GitHub, Local file, URL(safety warning), back (Go back to title screen)
             case 3:
                 pass #manage stories: delete, ect.
             case 4:
                 pass #settings
+                #Perhaps a different title screen option:
+                #
+                #The_Unknown
+                #_________________
+                #1..2..3..ect
             case 5:
                 sys.exit("Exiting... ")#Exit lol
             case _:
