@@ -31,14 +31,14 @@ def get_input(
 		prompt: str = "Your input: ", 
 		return_type = bool, 
 		# text_on_error: str = "Please use numbers: ", 
-		exit_valid = True
+		allow_exit: bool = True
 		):
 
     check = None
     check = input(f"{prompt}")
     print("")
 
-    if exit_valid:
+    if allow_exit:
         if check.lower() == "exit":
             sys.exit("Exiting... ")
 
