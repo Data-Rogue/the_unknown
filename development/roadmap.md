@@ -20,7 +20,7 @@ Developing an interactive story framework. Json powers the story.
  - New engine framework for multiple stories
  - Save system and engine parsing
  - ADDING new special argument; "END", to signify a type of ending and special things. Can have multiple endings.
- - Adding feature to choose content directory via prompt (Edit the .config/the_unknown/the_unknown.config or elsewhere for other platforms)
+ - ***Adding feature to choose content directory via prompt (Edit the .config/the_unknown/the_unknown.config or elsewhere for other platforms)***
  - More...
 
 ### Future features:
