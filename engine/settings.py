@@ -1,6 +1,8 @@
 from pathlib import Path
 import json
+import sys
 from engine import commands
+from engine import start
 
 settings_path = Path("engine/settings.json")
 
@@ -52,5 +54,15 @@ def settings_screen():
     # print("+------------+\n\n")
     print(f"1: Change title-screen\n2: Use sound: {False} - (toggaleable)\n3: Back\n4: Exit\n")
 
-    commands.get_input("Select: ", int, True)
+    input = commands.get_input("Select: ", int, True)
+
+    match input:
+        case 1:
+            pass
+        case 2:
+            pass# Currently unsupported
+        case 3:
+            start.title_screen()
+        case 4:
+            sys.exit("Exiting... ")
 
