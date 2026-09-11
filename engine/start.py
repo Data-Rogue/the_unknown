@@ -54,7 +54,7 @@ def select_option(print_options: bool = True):
             case 3:
                 pass #manage stories: delete, ect.
             case 4:
-                pass #settings
+                settings.settings_screen() #settings
                 #Perhaps a different title screen option:
                 #
                 #The_Unknown
