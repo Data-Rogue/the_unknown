@@ -29,10 +29,20 @@ def sterilize_input(input = None):
 
 def get_input(
 		prompt: str = "Select: ", 
-		return_type = bool, 
+		return_type: type[bool] | type[int] | type[str] | type[float] = int, 
 		# text_on_error: str = "Please use numbers: ", 
 		allow_exit: bool = True
 		):
+    """
+    Get input from user, set the wanted return type, and ability to exit the program
+    
+    :param prompt: Text to ask user for input
+    :type prompt: str
+    :param return_type: Specify what value type you want the prompt to return 
+    :type return_type: bool, int, str, float
+    :param allow_exit: Allow the user to type 'exit' to exit the program
+    :type allow_exit: bool
+    """
 
     check = None
     check = input(f"{prompt}")
