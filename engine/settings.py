@@ -44,11 +44,7 @@ def check_settings():
 
 def settings_screen():
     commands.clear_terminal()
-    print("""
-+------------+
-|   V0.2.0   |
-+------------+\n
-""")
+    print("""+------------+\n|   V0.2.0   |\n+------------+\n\n""")
     # print("+------------+")
     # print("|   V0.2.0   |")
     # print("+------------+\n\n")
