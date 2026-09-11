@@ -28,7 +28,7 @@ def sterilize_input(input = None):
 	pass
 
 def get_input(
-		prompt: str = "Your input: ", 
+		prompt: str = "Select: ", 
 		return_type = bool, 
 		# text_on_error: str = "Please use numbers: ", 
 		allow_exit: bool = True
