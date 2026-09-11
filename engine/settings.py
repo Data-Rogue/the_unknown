@@ -1,6 +1,6 @@
 from pathlib import Path
 import json
-
+from engine import commands
 
 settings_path = Path("engine/settings.json")
 
@@ -38,3 +38,19 @@ def check_settings():
             json.dump(stock_settings, f, indent=4)
             loaded_settings = stock_settings
             print(loaded_settings)
+
+
+def settings_screen():
+    commands.clear_terminal()
+    print("""
++------------+
+|   V0.2.0   |
++------------+\n
+""")
+    # print("+------------+")
+    # print("|   V0.2.0   |")
+    # print("+------------+\n\n")
+    print(f"1: Change title-screen\n2: Use sound: {False} - (toggaleable)\n3: Back\n4: Exit\n")
+
+    commands.get_input("Select: ", int, True)
+
