@@ -5,7 +5,6 @@
             "path": ""
         }
     },
-
-
-    "Audio engine": "Unsupported"
+    "Audio engine": "unsupported",
+    "title_screen": "default"
 }

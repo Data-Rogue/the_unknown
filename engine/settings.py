@@ -11,7 +11,8 @@ loaded_settings = {}
 
 stock_settings = {
     "Plugins": {},
-    "Audio engine": "Unsupported"
+    "Audio engine": "Unsupported",
+    "title_screen": "default"
 }
 
 
