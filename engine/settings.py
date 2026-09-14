@@ -37,10 +37,29 @@ def check_settings():
             loaded_settings = json.load(s)
 
     else:
-        with settings_path.open('w', encoding='utf-8') as f:
-            json.dump(stock_settings, f, indent=4)
-            loaded_settings = stock_settings
-            print(loaded_settings)
+        write_to_settings("None", "None", True)
+        # with settings_path.open('w', encoding='utf-8') as f:
+        #     json.dump(stock_settings, f, indent=4)
+        #     loaded_settings = stock_settings
+        #     print(loaded_settings)
+
+
+def write_to_settings(
+        variable_name: str = "comment", 
+        save_value: bool | int | str | float = "Cool comment bro.",
+        write_stock: bool = False
+        ):#TODO: Accommodate for nested settings
+    
+    global loaded_settings
+
+    if write_stock:
+        loaded_settings = stock_settings.copy()
+    else:
+        loaded_settings[variable_name] = save_value
+
+    with settings_path.open('w', encoding='utf-8') as f:
+        json.dump(loaded_settings, f, indent=4)
+
 
 
 def settings_screen():
@@ -54,12 +73,12 @@ def settings_screen():
     input = commands.get_input("Select: ", int, True)
 
     match input:
-        case 1:
+        case 1:# Title screen type
             pass
-        case 2:
+        case 2:# Sound
             pass# Currently unsupported
-        case 3:
+        case 3:# Back
             start.title_screen()
-        case 4:
+        case 4:# Exit
             sys.exit("Exiting... ")
 
