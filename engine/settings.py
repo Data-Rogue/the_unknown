@@ -46,7 +46,7 @@ def check_settings():
 
 def write_to_settings(
         variable_name: str = "comment", 
-        save_value: bool | int | str | float = "Cool comment bro.",
+        save_value: bool | int | str | float | dict = "Cool comment bro.",
         write_stock: bool = False
         ):#TODO: Accommodate for nested settings
     
