@@ -3,13 +3,10 @@ from engine.core import text_effects
 from engine import commands
 import time
 import sys
-#make json parser to extract data into commands.
 
 
-#Take in a dictionary and recursively search for nodes and input.
-#It must be light on resources, and fast for input. Parsing data
-#chunk-by-chunk is not that efficient. It does for now, but keep
-#that in mind.
+
+
 
 engine_defaults: dict = {
     "effect": "regular",
