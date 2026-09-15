@@ -11,9 +11,10 @@ loaded_settings = {}
 
 stock_settings = {
     "Plugins": {},
-    "Audio engine": "Unsupported",
+    "use_sound": False,
+    "Audio engine": "unsupported",
     "title_screen": "default"
-}
+}# false? 
 
 
 def init_settings():
@@ -43,6 +44,9 @@ def check_settings():
         #     loaded_settings = stock_settings
         #     print(loaded_settings)
 
+def get_setting(key: str = ""):
+    return loaded_settings[key]
+
 
 def write_to_settings(
         variable_name: str = "comment", 
@@ -68,7 +72,7 @@ def settings_screen():
     # print("+------------+")
     # print("|   V0.2.0   |")
     # print("+------------+\n\n")
-    print(f"1: Change title-screen\n2: Use sound: {False} - (toggaleable)\n3: Back\n4: Exit\n")
+    print(f"1: Change title-screen\n2: Use sound: {get_setting("use_sound")} - (toggaleable)\n3: Back\n4: Exit\n")
 
     input = commands.get_input("Select: ", int, True)
 
@@ -76,7 +80,11 @@ def settings_screen():
         case 1:# Title screen type
             pass
         case 2:# Sound
-            pass# Currently unsupported
+            flip = not get_setting("use_sound")
+            write_to_settings("use_sound", flip, False)
+            
+            settings_screen()
+            # Currently unsupported
         case 3:# Back
             start.title_screen()
         case 4:# Exit

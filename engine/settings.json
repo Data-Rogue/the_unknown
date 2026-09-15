@@ -5,6 +5,7 @@
             "path": ""
         }
     },
+    "use_sound": false,
     "Audio engine": "unsupported",
     "title_screen": "default"
 }
