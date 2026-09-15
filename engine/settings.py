@@ -10,11 +10,11 @@ loaded_settings = {}
 
 
 stock_settings = {
-    "Plugins": {},
+    "plugins": {},
     "use_sound": False,
-    "Audio engine": "unsupported",
+    "audio engine": "unsupported",
     "title_screen": "default"
-}# false? 
+}
 
 
 def init_settings():
@@ -82,7 +82,7 @@ def settings_screen():
         case 2:# Sound
             flip = not get_setting("use_sound")
             write_to_settings("use_sound", flip, False)
-            
+
             settings_screen()
             # Currently unsupported
         case 3:# Back
