@@ -16,9 +16,9 @@ engine_defaults: dict = {
 }
 
 
-current_node = ""
+current_node: str = ""
 
-resume = False #Temp var until resume game or something is working
+resume: bool = False #Temp var until resume game or something is working
 
 default_settings: dict = {}
 
