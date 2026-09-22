@@ -25,7 +25,7 @@ To ensure your privacy and security, this program follows a strict file-access p
 
   **Standard**: The engine stores save files in each story's save directory. If a valid save is found for the current narrative, progress can be loaded.
 
-  **File Creation**: If no save file or directory exists, the game will automatically create the required files and folders.
+  **File Creation**: If no save file or directory exists, the engine will automatically create the required files and folders.
 
 ## Prerequisites
 Before installing, ensure you have the following installed on your system
