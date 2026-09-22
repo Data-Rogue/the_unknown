@@ -55,7 +55,7 @@ A few notes on these cells;
 
 ## Default settings
 These settings will be used throughout the story if each node doesn't specify its own parameter. (If there are no default settings specified it will fall back on the hard-coded engine defaults.)
-For example, given the defaults above, the `"speed"` argument has a value of `0.04`. This can be overwritten by simply specifying `"speed": 0.1` in a given node;
+For example, given the defaults above, the `"speed"` argument has a value of `0.04`. This can be overwritten by simply specifying `"speed": 0.06` in a given node;
 
 ```JSON
 "intro_p1": {
