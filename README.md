@@ -57,7 +57,7 @@ This project only reads from and writes to its designated save directory. It doe
 You are encouraged to review the source code to verify its behavior firsthand.
 
 ## License
-This project is licensed under the MIT [License](LICENSE)
+This project is licensed under the [MIT License](LICENSE)
 
 ***Created by Hazmat Harry***
 
