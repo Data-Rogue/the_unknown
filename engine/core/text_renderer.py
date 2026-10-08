@@ -161,21 +161,24 @@ def handle_text(value, node_settings):
         
 
 def handle_choices(choices):
+    global current_node
     print("\n\n---------------")
     total_choices: int = 0
     
     for choice in choices:
         total_choices += 1
         
-        print(choice, "\n")
+        #print(choice, "\n")## Prints entire option node
         text_effects.typewriter_text(f"{total_choices}: {choice["text"]}", 0.03, 0, 1, 0)
 
     check = check_for_input()
-    if check is not None:
-        pass
+    if check is not None and range(1, total_choices):
+        current_node = choices[check - 1]["next"]
+        print(current_node)
     else:
         check = check_for_input()
-    print(check)
+    #print(check)
+    #print(choices)
     # try:
     #     check = int(check)
     # except (ValueError, TypeError):
