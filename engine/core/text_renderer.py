@@ -107,21 +107,28 @@ def execute_node(data):
 
     parsed = parse_node(node)
 
+    user_picked = False
+
     if parsed["interlude"] is not None:
         handle_interlude(parsed["interlude"])
+    else:
+        commands.clear_terminal()
+        time.sleep(1)
 
     if parsed["text"] is not None:
         handle_text(parsed["text"], parsed["settings"])
 
     if parsed["choices"] is not None:
-        handle_choices(parsed["choices"])
+        user_picked = handle_choices(parsed["choices"])
 
-    if parsed["next"] is not None:
-        if parsed["next"] is not "end":
-            current_node = parsed["next"]
-            execute_node(data)
-        else:
-            pass
+    if user_picked:
+        execute_node(data)
+    # if parsed["next"] is not None:
+    #     if parsed["next"] is not "end":
+    #         current_node = parsed["next"]
+    #         execute_node(data)
+    #     else:
+    #         pass
         
 
 
@@ -175,6 +182,7 @@ def handle_choices(choices):
     if check is not None and range(1, total_choices):
         current_node = choices[check - 1]["next"]
         print(current_node)
+        return True
     else:
         check = check_for_input()
     #print(check)
