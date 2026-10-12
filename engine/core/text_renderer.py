@@ -180,8 +180,19 @@ def handle_choices(choices):
 
     check = check_for_input()
     if check is not None and range(1, total_choices):
-        current_node = choices[check - 1]["next"]
-        print(current_node)
+        try :
+            current_node = choices[check - 1]["next"]
+
+            # if choices[check - 1]["next"] is None:
+            #     sys.exit("Error: key value is missing or unusable")#TODO: not working. the engine breaks here if there isn't a valid key
+
+        except KeyError:
+            sys.exit("KeyError: Missing key -> 'next'")
+        # if choices[check - 1]["next"] is not None:
+        #     current_node = choices[check - 1]["next"]
+        # else:
+        #     sys.exit(f"Error: Not a useable path - {choices[check - 1]["next"]}")
+        # print(current_node)
         return True
     else:
         check = check_for_input()
