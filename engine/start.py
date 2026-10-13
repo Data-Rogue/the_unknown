@@ -29,7 +29,7 @@ def start_boot():
         commands.clear_terminal()
 
         print(f"Initialization failed\n\nError: {error}")
-        input("Press any key to exit")
+        input("Press Enter key to exit")
         sys.exit("Exiting... ")
 
     commands.clear_terminal()
