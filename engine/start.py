@@ -19,22 +19,31 @@ def choose_story():
 
 def start_boot():
     commands.clear_terminal()
-    text_effects.typewriter_text(boot_message, .04, 0, 1)
+    text_effects.typewriter_text("Initializing The_Unknown", .04, 0, 1)
 
-    #Try and initialize engine, unless error
+    
+    check_engine_with_personality()#Try and initialize engine, unless error
+
+    commands.clear_terminal()
+
+    title_screen()
+
+
+def check_engine_with_personality():
     try:
+        print("Checking settings...")
         settings.init_settings()
+        print("\nEverything seems good.\n\n...For now.")
+        
+        #More checks coming soon...
         
     except (OSError, ValueError) as error:
         commands.clear_terminal()
 
         print(f"Initialization failed\n\nError: {error}")
-        input("Press Enter key to exit")
+        input("\n\nNot working huh?\nWell, you can always press the Enter key to exit")
         sys.exit("Exiting... ")
 
-    commands.clear_terminal()
-
-    title_screen()
 
 
 def title_screen():
