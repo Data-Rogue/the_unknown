@@ -39,7 +39,7 @@ def start_boot():
 
 def title_screen():
     print(title_ascii)
-    print("Version 0.2.0")
+    print("Version 0.1.0-alpha")
     print("Created by Hazmat Harry")
     print("\n")
     
