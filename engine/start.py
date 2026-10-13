@@ -5,6 +5,13 @@ from engine import settings
 import sys
 
 
+boot_messages: list = [
+    "Oi! time to initialize...",
+    "Initializing...",
+    "Working on it..."
+]
+
+boot_message: str = f"     The_unknown\n\n{boot_messages[0]}"
 
 def choose_story():
     save_system.get_stories()
@@ -12,9 +19,19 @@ def choose_story():
 
 def start_boot():
     commands.clear_terminal()
-    text_effects.typewriter_text("Initializing... ", .04, 0, 1)
+    text_effects.typewriter_text(boot_message, .04, 0, 1)
 
-    settings.init_settings()
+    #Try and initialize engine, unless error
+    try:
+        settings.init_settings()
+        
+    except (OSError, ValueError) as error:
+        commands.clear_terminal()
+
+        print(f"Initialization failed\n\nError: {error}")
+        input("Press any key to exit")
+        sys.exit("Exiting... ")
+
     commands.clear_terminal()
 
     title_screen()
