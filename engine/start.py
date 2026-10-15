@@ -15,18 +15,22 @@ def start_boot():
     #text_effects.typewriter_text("Initializing The_Unknown... ", .04, 0, 1)
 
     
-    check_engine_with_personality()#Try and initialize engine, unless error
+    check_engine()#Try and initialize engine, unless error
 
     commands.clear_terminal()
 
     title_screen()
 
 
-def check_engine_with_personality():
+def check_engine():
     try:
-        print("Checking settings...")
+        #print("Checking settings...")
         settings.init_settings()
-        print("\nEverything seems good.\n\n...For now.")
+
+        # num = 0
+        # for check in checks:
+        #     num = num + 1
+        #     print(f"check {num}: {settings.init_settings}")#Thinking for future checks
         
         #More checks coming soon...
         
