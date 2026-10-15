@@ -5,13 +5,6 @@ from engine import settings
 import sys
 
 
-boot_messages: list = [
-    "Oi! time to initialize...",
-    "Initializing...",
-    "Working on it..."
-]
-
-boot_message: str = f"     The_unknown\n\n{boot_messages[0]}"
 
 def choose_story():
     save_system.get_stories()
