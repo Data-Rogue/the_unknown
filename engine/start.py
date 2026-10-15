@@ -12,7 +12,7 @@ def choose_story():
 
 def start_boot():
     commands.clear_terminal()
-    text_effects.typewriter_text("Initializing The_Unknown", .04, 0, 1)
+    #text_effects.typewriter_text("Initializing The_Unknown... ", .04, 0, 1)
 
     
     check_engine_with_personality()#Try and initialize engine, unless error
