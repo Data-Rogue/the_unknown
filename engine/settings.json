@@ -6,6 +6,6 @@
         }
     },
     "use_sound": false,
-    "audio engine": "unsupported",
+    "audio_engine": "unsupported",
     "title_screen": "default"
 }
