@@ -38,7 +38,7 @@ def check_engine():
         commands.clear_terminal()
 
         print(f"Initialization failed\n\nError: {error}")
-        input("\n\nNot working huh?\nWell, you can always press the Enter key to exit")
+        input("\n\nPress the Enter key to exit")
         sys.exit("Exiting... ")
 
 
