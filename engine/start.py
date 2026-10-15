@@ -11,7 +11,7 @@ def choose_story():
 
 
 def start_boot():
-    commands.clear_terminal()
+    #commands.clear_terminal()
     #text_effects.typewriter_text("Initializing The_Unknown... ", .04, 0, 1)
 
     
