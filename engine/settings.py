@@ -4,7 +4,7 @@ import sys
 from engine import commands
 from engine import start
 
-settings_path = Path("engine/settings.json")
+settings_path = Path("engine/config.json")
 
 loaded_settings = {}
 
