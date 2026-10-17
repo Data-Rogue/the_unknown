@@ -11,11 +11,11 @@ The project includes a starter narrative called **Origin**, but the engine is de
 
 ## Features:
   
-  - Create branching narratives using simple JSON files with minimal programming knowledge
+  - Create **branching narratives** using **simple JSON** files with ***minimal programming knowledge***
 
-  - Dynamic Interactions: Player choices influence story progression, dialogue, and narrative outcomes
+  - **Dynamic Interactions**: Player choices influence story progression, dialogue, and narrative outcomes
 
-  - Persistent Progress
+  - **Persistent Progress**: Quickly jump back into stories with ***saves***!
 
 
 
