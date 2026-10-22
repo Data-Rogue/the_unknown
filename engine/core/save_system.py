@@ -5,6 +5,7 @@ from engine.core import text_effects
 import time
 from engine import commands
 from engine.core import text_renderer
+from engine import settings
 
 basic_data = {}
 
@@ -12,7 +13,10 @@ saves_found = []
 stories_found = []
 
 
-dialogue_path = Path("content/narratives")
+default_dialogue_path: Path = Path("content/narratives")
+
+
+
 savefile = Path("saves")#this is the path to the actual savefile
 save_path = Path("saves")#path to all savefiles
 
@@ -23,7 +27,14 @@ selected_story = 0
 
 stories: list = []
 
-
+def check_for_custom_dialogue_path():
+	try:
+		custom_path = settings.get_setting("user_dialogue_path") 
+		if custom_path is not None and len(custom_path) > 1:
+			return
+	except (TypeError, ValueError) as e:
+		sys.exit(f"Error: {e} at engine/config.json.")
+		
 
 #TODO: return dictionary and parse story to get metadata.
 def get_stories():
