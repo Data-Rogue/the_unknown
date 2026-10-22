@@ -13,7 +13,7 @@ saves_found = []
 stories_found = []
 
 
-default_dialogue_path: Path = Path("content/narratives")
+#default_dialogue_path: Path = Path("content/narratives")#Hardcoded engine default backup
 
 
 
@@ -29,11 +29,17 @@ stories: list = []
 
 def check_for_custom_dialogue_path():
 	try:
-		custom_path = settings.get_setting("user_dialogue_path") 
+
+		default_path = settings.get_setting("default_dialogue_path")
+
+		custom_path = settings.get_setting("user_dialogue_path")
+
 		if custom_path is not None and len(custom_path) > 1:
-			return
+			return custom_path
+		else:
+			return default_path
 	except (TypeError, ValueError) as e:
-		sys.exit(f"Error: {e} at engine/config.json.")
+		sys.exit(f"Error: {e} at engine/config.json.\n\nPlease fix by either configuring the custom path or checking the config.json")
 		
 
 #TODO: return dictionary and parse story to get metadata.
@@ -52,6 +58,7 @@ def get_stories():
 #---------------------------Print some metadata for each story(like; name, version, ect.)
 #---------------------------When a story is selected, move story to current story(like '.pop()'), and clear variable to free up memory.
 
+	dialogue_path: Path = Path(check_for_custom_dialogue_path())#This will exit if json error
 
 	for file in dialogue_path.rglob("story.json"):##HACK :Saves should go in the narrative's folder!
 		story_count += 1
