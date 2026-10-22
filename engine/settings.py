@@ -13,7 +13,9 @@ stock_settings = {
     "plugins": {},
     "use_sound": False,
     "audio engine": "unsupported",
-    "title_screen": "default"
+    "title_screen": "default",
+    "default_dialogue_path": "content/narratives",
+    "user_dialogue_path": ""
 }
 
 

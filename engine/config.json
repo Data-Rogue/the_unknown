@@ -7,5 +7,7 @@
     },
     "use_sound": false,
     "audio_engine": "unsupported",
-    "title_screen": "default"
+    "title_screen": "default",
+    "default_dialogue_path": "content/narratives",
+    "user_dialogue_path": ""
 }
