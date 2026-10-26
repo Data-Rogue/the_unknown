@@ -73,9 +73,12 @@ def get_narrative_path():
     else:
         return get_setting("default_dialogue_path")
 
-
 def edit_narrative_path():
-    pass
+    commands.clear_terminal()
+    print("+----------------------------+\n|  Configure Narrative Path  |\n+----------------------------+\n\n")
+    print(f"Current Narrative path: '{get_narrative_path()}'")
+    input("New Path: ")
+    
 
 def settings_screen():
     commands.clear_terminal()
@@ -84,11 +87,11 @@ def settings_screen():
     # print("|   V0.2.0   |")
     # print("+------------+\n\n")
     print(f"""
-    1: Change title-screen
-    2: Use sound: {get_setting("use_sound")} - (toggaleable)
-    3: Configure narrative path: {get_narrative_path()}
-    4: Back
-    5: Exit\n""")
+1: Change title-screen
+2: Use sound: {get_setting("use_sound")} - (toggaleable)
+3: Configure narrative path: {get_narrative_path()}
+4: Back
+5: Exit\n""")
 
     input = commands.get_input("Select: ", int, True)
 
