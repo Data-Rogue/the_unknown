@@ -67,6 +67,15 @@ def write_to_settings(
         json.dump(loaded_settings, f, indent=4)
 
 
+def get_narrative_path():
+    if len(get_setting("user_dialogue_path")) > 2:
+        return get_setting("user_dialogue_path")
+    else:
+        return get_setting("default_dialogue_path")
+
+
+def edit_narrative_path():
+    pass
 
 def settings_screen():
     commands.clear_terminal()
@@ -74,7 +83,12 @@ def settings_screen():
     # print("+------------+")
     # print("|   V0.2.0   |")
     # print("+------------+\n\n")
-    print(f"1: Change title-screen\n2: Use sound: {get_setting("use_sound")} - (toggaleable)\n3: Back\n4: Exit\n")
+    print(f"""
+    1: Change title-screen
+    2: Use sound: {get_setting("use_sound")} - (toggaleable)
+    3: Configure narrative path: {get_narrative_path()}
+    4: Back
+    5: Exit\n""")
 
     input = commands.get_input("Select: ", int, True)
 
@@ -87,8 +101,10 @@ def settings_screen():
 
             settings_screen()
             # Currently unsupported
-        case 3:# Back
+        case 3:# Configure narrative path
+            edit_narrative_path()
+        case 4:# Back
             start.title_screen()
-        case 4:# Exit
+        case 5:# Exit
             sys.exit("Exiting... ")
 
