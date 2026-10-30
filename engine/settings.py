@@ -3,6 +3,7 @@ import json
 import sys
 from engine import commands
 from engine import start
+from engine import commands
 
 settings_path = Path("engine/config.json")
 
@@ -73,11 +74,12 @@ def get_narrative_path():
     else:
         return get_setting("default_dialogue_path")
 
+
 def edit_narrative_path():
     commands.clear_terminal()
     print("+----------------------------+\n|  Configure Narrative Path  |\n+----------------------------+\n\n")
     print(f"Current Narrative path: '{get_narrative_path()}'")
-    input("New Path: ")
+    commands.get_input("New Path: ", str, True)
     
 
 def settings_screen():
@@ -89,7 +91,7 @@ def settings_screen():
     print(f"""
 1: Change title-screen
 2: Use sound: {get_setting("use_sound")} - (toggaleable)
-3: Configure narrative path: {get_narrative_path()}
+3: Configure narrative path: '{get_narrative_path()}'
 4: Back
 5: Exit\n""")
 
