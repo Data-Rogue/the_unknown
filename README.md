@@ -67,7 +67,7 @@ Want to see how you can make your own story? See [story_writing.md](development/
 We're thrilled you want to help us improve the engine! 
 Please feel free to open a pull request!
 > [!IMPORTANT]
-> With the rise of AI agents and coding assistants, some may worry about the quality of the code generated. This project is **Human first**, with AI code last. Please **refrain from using substantial amounts of AI generated code.** Small amounts like revising the README or fixing a **small bug** will be accepted. We know everyone has the right to choose how they code, but **please follow this outline when contributing to this project.**  Thank you!
+> With the rise of AI agents and coding assistants, some may worry about the quality of the code generated. This project is **Human first**, with AI code second. Please **refrain from using substantial amounts of AI generated code.** Small amounts like revising some of the README or fixing a **small bug** will be accepted. Thank you.
 <!-- Please first read the [Code of Conduct]() and [...] -->
 
 ## Privacy Disclaimer
