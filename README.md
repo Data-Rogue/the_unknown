@@ -5,11 +5,22 @@
 
 The_Unknown is an open-source Python terminal narrative engine and interactive fiction framework.
 
-Create branching stories, dialogue-driven adventures, mystery games, visual novel style experiences, or entirely custom text-based projects using simple JSON narrative files.
+Create branching stories, dialogue driven adventures, mystery games, visual novel style experiences, or entirely custom text-based projects using simple JSON narrative files.
 
 The project includes a starter narrative called **Origin**, but the engine is designed to support entirely custom narratives without modifying the core Python code.
 
-## Features:
+## Active Development
+> [!Note]
+> This engine is currently in early Alpha development. Removed features and breaking changes are to be expected. Want to help us improve the engine? See [Development](#development)
+
+Current progress:
+
+- [x] Active story loop is working
+- [ ] https://github.com/Data-Rogue/the_unknown/issues/1
+- [ ] More cool stuff soon...
+
+
+## Features
   
   - Create **branching narratives** using **simple JSON** files with ***minimal programming knowledge***
 
@@ -49,7 +60,12 @@ python3 the_unknown.py
 ```
 
 ## Story writing
- - See [story_writing.md](development/story_writing.md)
+Want to see how you can make your own story? See [story_writing.md](development/story_writing.md) for examples and explanations.
+ > Prefer an GUI editor? Open a Pull Request and tell us what you would like! If we have enough requests, development may start on The_Unknown_Editor!
+
+## Development
+We're thrilled you want to help us improve the engine!
+<!-- Please first read the [Code of Conduct]() and [...] -->
 
 ## Privacy Disclaimer
 
