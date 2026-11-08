@@ -64,7 +64,10 @@ Want to see how you can make your own story? See [story_writing.md](development/
  > Prefer an GUI editor? Open a Pull Request and tell us what you would like! If we have enough requests, development may start on The_Unknown_Editor!
 
 ## Development
-We're thrilled you want to help us improve the engine!
+We're thrilled you want to help us improve the engine! 
+Please feel free to open a pull request!
+> [!IMPORTANT]
+> With the rise of AI agents and coding assistants, some may worry about the quality of the code generated. This project is **Human first**, with AI code last. Please **refrain from using substantial amounts of AI generated code.** Small amounts like revising the README or fixing a **small bug** will be accepted. We know everyone has the right to choose how they code, but **please follow this outline when contributing to this project.**  Thank you!
 <!-- Please first read the [Code of Conduct]() and [...] -->
 
 ## Privacy Disclaimer
