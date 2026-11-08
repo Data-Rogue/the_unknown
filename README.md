@@ -16,7 +16,7 @@ The project includes a starter narrative called **Origin**, but the engine is de
 Current progress:
 
 - [x] Active story loop is working
-- [ ] https://github.com/Data-Rogue/the_unknown/issues/1
+- [ ] Stories, savefiles and plugins should be in a separate folder https://github.com/Data-Rogue/the_unknown/issues/1
 - [ ] More cool stuff soon...
 
 
