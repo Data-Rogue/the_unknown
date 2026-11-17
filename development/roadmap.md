@@ -9,16 +9,16 @@
 
 
 ## Current focus:
-Developing an interactive story framework. Json powers the story.
+Configurable narrative path, and add more dialogue to 'Origin' story.
 
 ## Future focus:
  - **Security**: Add preprocessing to input strings to strip input from harmful arguments.
 
 
-## Current Progress ~ 26%
+## Current Progress ~ 31%
 ### Working on:
  - New engine framework for multiple stories
- - Save system and engine parsing
+ - Save system
  - ADDING new special argument; "END", to signify a type of ending and special things. Can have multiple endings.
  - ***Adding feature to choose content directory via prompt (Edit the .config/the_unknown/the_unknown.config or elsewhere for other platforms)***
  - More...
