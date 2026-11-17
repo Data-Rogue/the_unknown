@@ -5,20 +5,7 @@ import time
 from engine import game
 
 
-
-# narrative1 = Path("content/narratives/origin.json")
-# game_data = ""
-# with narrative1.open('r', encoding='utf-8') as file:
-		
-# 		game_data = json.load(file)
-
-
-# text_renderer.parse_data(game_data)
-#text_renderer.get_story(game_data)
-
-#time.sleep(30)
 game.start_game()
-#start.choose_story()
 
 
 #Deleted old codebase
