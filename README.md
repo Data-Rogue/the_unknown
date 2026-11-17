@@ -72,7 +72,7 @@ Please feel free to open a pull request!
 
 ## Privacy Disclaimer
 
-This project only reads from and writes to its designated save directory. It does not modify unrelated files on your system or transmit data externally.
+This project only reads from and writes to its configurable save directory. It does not modify unrelated files on your system or transmit data externally.
 You are encouraged to review the source code to verify its behavior firsthand.
 
 ## License
