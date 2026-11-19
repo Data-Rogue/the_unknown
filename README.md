@@ -61,7 +61,6 @@ python3 the_unknown.py
 
 ## Story writing
 Want to see how you can make your own story? See [story_writing.md](development/story_writing.md) for examples and explanations.
- > Prefer an GUI editor? Open a Pull Request and tell us what you would like! If we have enough requests, development may start on The_Unknown_Editor!
 
 ## Development
 We're thrilled you want to help us improve the engine! 
