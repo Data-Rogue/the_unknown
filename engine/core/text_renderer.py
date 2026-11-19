@@ -123,12 +123,14 @@ def execute_node(data):
 
     if user_picked:
         execute_node(data)
-    # if parsed["next"] is not None:
-    #     if parsed["next"] is not "end":
-    #         current_node = parsed["next"]
-    #         execute_node(data)
-    #     else:
-    #         pass
+
+    #TODO: Add logic to handle error on key missing
+    if parsed["next"] is not None:
+        if parsed["next"] is not "end":
+            current_node = parsed["next"]
+            execute_node(data)
+        else:
+            pass
         
 
 
