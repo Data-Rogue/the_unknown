@@ -87,6 +87,18 @@
         }
     ],
       "next": "intro_p2"
+    },
+
+    "intro_p3": {
+      "text":"S-sorry. I don't get company often.",
+      "pause": 3,
+      "next": "intro_p4"
+    },
+
+    "intro_p4": {
+      "text":"Nobody really likes to see the terminal.",
+      "pause": 2,
+      "next": "intro_p5"
     }
   }
 }
