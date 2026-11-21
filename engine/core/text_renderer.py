@@ -107,7 +107,7 @@ def execute_node(data):
 
     parsed = parse_node(node)
 
-    user_picked = False
+    user_picked = False# Holds whether the user has picked a choice or not. 
 
     if parsed["interlude"] is not None:
         handle_interlude(parsed["interlude"])
